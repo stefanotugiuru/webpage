@@ -1,3 +1,10 @@
+# Permetti a tutti i motori di ricerca di indicizzare il sito
 User-agent: *
 Allow: /
-Sitemap: https://stefanotugiuru.github.io/webpage/sitemap.xml
+
+# Indica dove si trova la sitemap
+Sitemap: https://stefanotugiuru.space/sitemap.xml
+
+# Eventuali directory o file da escludere (opzionale)
+# Disallow: /private/
+# Disallow: /test.html
