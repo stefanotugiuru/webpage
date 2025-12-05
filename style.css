@@ -1847,3 +1847,62 @@ section h2 a:hover {
     transform: translateY(0);
   }
 }
+
+/* ============================ */
+/* DEBUG VIDEO - AGGIUNGI ALLA FINE DEL FILE CSS */
+/* ============================ */
+
+/* Reset completo della hero */
+.hero {
+  position: relative !important;
+  width: 100% !important;
+  height: 100vh !important;
+  min-height: 700px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  overflow: hidden !important;
+  background-color: #000 !important;
+}
+
+/* Video dimensione ORIGINALE - FORZATO */
+.hero-video,
+.desktop-video {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 1920px !important;
+  height: 1080px !important;
+  max-width: none !important;
+  max-height: none !important;
+  min-width: auto !important;
+  min-height: auto !important;
+  object-fit: none !important;
+  z-index: 0 !important;
+  display: block !important;
+  pointer-events: none !important;
+}
+
+/* Assicurati che il mobile sia nascosto su desktop */
+.mobile-video {
+  display: none !important;
+}
+
+/* Se lo schermo è più piccolo di 1920px, scala proporzionalmente */
+@media (max-width: 1920px) {
+  .hero-video,
+  .desktop-video {
+    width: 100vw !important;
+    height: calc(100vw * 1080 / 1920) !important;
+  }
+}
+
+/* Se l'altezza è il limite, scala in base all'altezza */
+@media (max-height: 1080px) {
+  .hero-video,
+  .desktop-video {
+    height: 100vh !important;
+    width: calc(100vh * 1920 / 1080) !important;
+  }
+}
