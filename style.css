@@ -133,37 +133,41 @@ body {
 .hamburger.open span:nth-child(3) {
   transform: rotate(-45deg) translate(7px, -7px);
 }
-
 /* ============================ */
-/* HERO SECTION CON VIDEO       */
+/* HERO SECTION - CSS PULITO    */
 /* ============================ */
 .hero {
   position: relative;
+  width: 100%;
   height: 100vh;
   min-height: 700px;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
   overflow: hidden;
+  background: #000;
 }
 
-/* Video di sfondo */
+/* Video background */
 .hero-video {
   position: absolute;
   top: 50%;
   left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
   transform: translate(-50%, -50%);
   z-index: 0;
-  object-fit: cover;
 }
 
-/* Overlay scuro opzionale per migliorare la leggibilità */
-.hero::before {
+/* Mostra video desktop, nascondi mobile */
+.desktop-video {
+  display: block;
+}
+
+.mobile-video {
+  display: none;
+}
+
+/* Overlay scuro */
+.hero::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -171,7 +175,13 @@ body {
   z-index: 1;
 }
 
-/* Contenuto hero sopra il video */
+/* Nascondi elementi vecchi */
+.hero-bg,
+.particles {
+  display: none;
+}
+
+/* Box contenuto */
 .hero-content {
   position: relative;
   z-index: 2;
@@ -180,7 +190,7 @@ body {
   margin: 0 auto;
   border-radius: 15px;
   border: 2px solid var(--gold);
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(10px);
   animation: fadeInUp 1s ease;
 }
@@ -234,8 +244,16 @@ body {
   animation: fadeIn 1s ease 0.7s both;
 }
 
-/* Responsive per mobile */
+/* Responsive */
 @media (max-width: 768px) {
+  .desktop-video {
+    display: none;
+  }
+  
+  .mobile-video {
+    display: block;
+  }
+
   .hero h1 {
     font-size: 3rem;
   }
@@ -267,6 +285,7 @@ body {
     font-size: 0.95rem;
   }
 }
+
 /* ============================ */
 /* CTA BUTTON - UNIFIED         */
 /* ============================ */
@@ -1845,64 +1864,5 @@ section h2 a:hover {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-/* ============================ */
-/* DEBUG VIDEO - AGGIUNGI ALLA FINE DEL FILE CSS */
-/* ============================ */
-
-/* Reset completo della hero */
-.hero {
-  position: relative !important;
-  width: 100% !important;
-  height: 100vh !important;
-  min-height: 700px !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  overflow: hidden !important;
-  background-color: #000 !important;
-}
-
-/* Video dimensione ORIGINALE - FORZATO */
-.hero-video,
-.desktop-video {
-  position: absolute !important;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  width: 1920px !important;
-  height: 1080px !important;
-  max-width: none !important;
-  max-height: none !important;
-  min-width: auto !important;
-  min-height: auto !important;
-  object-fit: none !important;
-  z-index: 0 !important;
-  display: block !important;
-  pointer-events: none !important;
-}
-
-/* Assicurati che il mobile sia nascosto su desktop */
-.mobile-video {
-  display: none !important;
-}
-
-/* Se lo schermo è più piccolo di 1920px, scala proporzionalmente */
-@media (max-width: 1920px) {
-  .hero-video,
-  .desktop-video {
-    width: 100vw !important;
-    height: calc(100vw * 1080 / 1920) !important;
-  }
-}
-
-/* Se l'altezza è il limite, scala in base all'altezza */
-@media (max-height: 1080px) {
-  .hero-video,
-  .desktop-video {
-    height: 100vh !important;
-    width: calc(100vh * 1920 / 1080) !important;
   }
 }
