@@ -542,7 +542,7 @@ body {
 .podcast-video-wrapper {
   position: relative;
   width: 100%;
-  max-width: 900px;        /* qui limitiamo la larghezza massima */
+  max-width: 800px;        /* qui limitiamo la larghezza massima */
   margin: 0 auto;          /* centra il video */
   overflow: hidden;
   border-radius: 12px;
