@@ -518,7 +518,7 @@ body {
 }
 .podcast-video-section {
   width: 100%;
-  padding: 40 20px;       /* margine laterale */
+  padding: 40px 20px;       /* margine laterale */
   margin: 10px auto;
   text-align: center;
   margin-top: 60px; /* o un valore maggiore se serve più spazio */
