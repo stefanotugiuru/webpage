@@ -517,8 +517,8 @@ body {
   }
 }
 .podcast-video-section {
-  width: 100%;             /* occupa tutta la larghezza */
-  padding: 0 20px;         /* margine laterale minimo */
+  width: 100%;
+  padding: 0 20px;       /* margine laterale */
   margin: 10px auto;
   text-align: center;
   margin-top: -45px;
@@ -527,7 +527,7 @@ body {
 .podcast-title {
   font-family: 'Poppins', sans-serif;
   font-size: 2rem;
-  color: #7B1E22; /* Bordeaux */
+  color: #7B1E22;
   margin-bottom: 10px;
   text-transform: uppercase;
 }
@@ -539,27 +539,25 @@ body {
   margin-bottom: 30px;
 }
 
-/* Wrapper responsive per iframe e video */
 .podcast-video-wrapper {
   position: relative;
   width: 100%;
+  max-width: 900px;        /* qui limitiamo la larghezza massima */
+  margin: 0 auto;          /* centra il video */
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
-/* Video HTML nativo e iframe */
 .podcast-video-wrapper video,
 .podcast-video-wrapper iframe {
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 9;   /* mantiene proporzioni corrette */
+  aspect-ratio: 16 / 9;
   display: block;
   border: none;
   border-radius: 12px;
-  max-width: 100%;         /* assicura che non esca dal contenitore */
 }
-
 /* ============================ */
 /* CONTACT SECTION - REFINED    */
 /* ============================ */
