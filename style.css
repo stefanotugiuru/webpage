@@ -133,55 +133,66 @@ body {
 .hamburger.open span:nth-child(3) {
   transform: rotate(-45deg) translate(7px, -7px);
 }
+
 /* ============================ */
-/* HERO SECTION - CSS PULITO    */
+/* HERO SECTION (index.html)    */
 /* ============================ */
 .hero {
   position: relative;
-  width: 100%;
   height: 100vh;
   min-height: 700px;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   overflow: hidden;
-  background: #000;
+  background: linear-gradient(135deg, #1a0303 0%, #3d0a0d 50%, #1a0303 100%);
 }
 
-/* Video background */
-.hero-video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 0;
-}
-
-/* Mostra video desktop, nascondi mobile */
-.desktop-video {
-  display: block;
-}
-
-.mobile-video {
-  display: none;
-}
-
-/* Overlay scuro */
-.hero::after {
-  content: '';
+.hero-bg {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 1;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%237B1E22;stop-opacity:0.3"/><stop offset="100%" style="stop-color:%23D4AF37;stop-opacity:0.1"/></linearGradient></defs><circle cx="100" cy="100" r="80" fill="url(%23grad)"/><circle cx="1000" cy="200" r="120" fill="url(%23grad)"/><circle cx="600" cy="600" r="100" fill="url(%23grad)"/><circle cx="200" cy="700" r="60" fill="url(%23grad)"/></svg>') center/cover;
+  animation: float 20s ease-in-out infinite;
+  opacity: 0.3;
 }
 
-/* Nascondi elementi vecchi */
-.hero-bg,
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
+}
+
 .particles {
-  display: none;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
 }
 
-/* Box contenuto */
+.particle {
+  position: absolute;
+  background: var(--gold);
+  border-radius: 50%;
+  animation: rise 15s linear infinite;
+  opacity: 0;
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1);
+    opacity: 0;
+  }
+}
+
 .hero-content {
   position: relative;
   z-index: 2;
@@ -190,7 +201,7 @@ body {
   margin: 0 auto;
   border-radius: 15px;
   border: 2px solid var(--gold);
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
   animation: fadeInUp 1s ease;
 }
@@ -244,46 +255,50 @@ body {
   animation: fadeIn 1s ease 0.7s both;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .desktop-video {
-    display: none;
-  }
-  
-  .mobile-video {
-    display: block;
-  }
-
-  .hero h1 {
-    font-size: 3rem;
-  }
-
-  .hero h2 {
-    font-size: 1.4rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-
-  .hero-content {
-    padding: 30px 25px;
-    margin: 0 20px;
-  }
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 2s infinite;
+  z-index: 2;
 }
 
-@media (max-width: 480px) {
-  .hero h1 {
-    font-size: 2.2rem;
-  }
+.scroll-indicator i {
+  font-size: 2rem;
+  color: var(--gold);
+  filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+}
 
-  .hero h2 {
-    font-size: 1.2rem;
-  }
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(10px); }
+}
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
 
-  .hero p {
-    font-size: 0.95rem;
-  }
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-bg {
+  display: none;
 }
 
 /* ============================ */
