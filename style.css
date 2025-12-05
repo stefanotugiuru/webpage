@@ -517,7 +517,8 @@ body {
   }
 }
 .podcast-video-section {
-  max-width: 1100px;       /* puoi aumentare o diminuire */
+  width: 100%;             /* occupa tutta la larghezza */
+  padding: 0 20px;         /* margine laterale minimo */
   margin: 10px auto;
   text-align: center;
   margin-top: -45px;
@@ -547,16 +548,18 @@ body {
   box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
-/* Video HTML nativo */
+/* Video HTML nativo e iframe */
 .podcast-video-wrapper video,
 .podcast-video-wrapper iframe {
   width: 100%;
-  aspect-ratio: 16 / 9;   /* mantiene proporzioni corrette */
   height: auto;
+  aspect-ratio: 16 / 9;   /* mantiene proporzioni corrette */
   display: block;
   border: none;
   border-radius: 12px;
+  max-width: 100%;         /* assicura che non esca dal contenitore */
 }
+
 /* ============================ */
 /* CONTACT SECTION - REFINED    */
 /* ============================ */
