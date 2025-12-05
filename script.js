@@ -93,23 +93,4 @@ window.addEventListener('scroll', () => {
   if (window.scrollY > 50) navbar.classList.add('scrolled');
   else navbar.classList.remove('scrolled');
 });
-// Adatta il video alle dimensioni dello schermo mantenendo proporzioni
-function resizeVideo() {
-  const video = document.querySelector('.hero-video');
-  if (!video) return;
-  
-  const hero = document.querySelector('.hero');
-  const videoRatio = 1920 / 1080;
-  const heroRatio = hero.offsetWidth / hero.offsetHeight;
-  
-  if (heroRatio > videoRatio) {
-    video.style.width = '100%';
-    video.style.height = 'auto';
-  } else {
-    video.style.width = 'auto';
-    video.style.height = '100%';
-  }
-}
 
-window.addEventListener('load', resizeVideo);
-window.addEventListener('resize', resizeVideo);
