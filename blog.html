@@ -1,23 +1,28 @@
 <!DOCTYPE html>
-<html lang="it" >
+<html lang="it">
 <head>
-    <meta property="og:title" content="Page title here">
-    <meta property="og:description" content="Short description for social sharing.">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name=\"description\" content=\"Replace this with a concise page description for SEO (max ~160 chars).\">
   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https: })(window,document,'script','dataLayer','GTM-N7WB7R8C');</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N7WB7R8C');</script>
 <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel=\"canonical\" href=\"/\">
   <title>Blog - Stefano Maurici</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-B7YL9L0958"></script>
-<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-B7YL9L0958');</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B7YL9L0958');
+</script>
 </head>
 <body class="blog-main-page">
 <!-- Google Tag Manager (noscript) -->
@@ -27,7 +32,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- NAVBAR -->
 <nav class="navbar">
-  <a href="index.html" class="logo"><img src="images/LOGO.png" alt="Stefano Maurici Logo" loading="lazy" decoding="async" fetchpriority="low"></a>
+  <a href="index.html" class="logo"><img src="images/logo giustissimo.png" alt="Stefano Maurici Logo"></a>
   <ul class="nav-links">
     <li><a href="about.html">About</a></li>
     <li><a href="portfolio.html">Portfolio</a></li>
@@ -52,49 +57,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="blog-filters">
   <button class="filter-btn active" data-category="all">All</button>
   <button class="filter-btn" data-category="travel">Travel</button>
-  <button class="filter-btn" data-category="receipt">Receipt</button>
+  <button class="filter-btn" data-category="recipes">Recipes</button>
 </div>
 
 <!-- BLOG GRID -->
-<section class="blog-container">
-  <div class="blog-grid">
-
-    <!-- Blog Card Travel -->
-    <article class="blog-card" data-category="travel">
-      <div class="blog-card-image">
-        <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&h=400&fit=crop" alt="Travel" loading="lazy" decoding="async" fetchpriority="low">
-        <span class="blog-category">Travel</span>
-      </div>
-      <div class="blog-card-content">
-        <div class="blog-meta">
-          <span><i class="far fa-calendar"></i> Nov 28, 2024</span>
-          <span><i class="far fa-clock"></i> 6 min</span>
-        </div>
-        <h3>Filming Across Europe: Lessons Learned</h3>
-        <p>My recent travels through Europe taught me invaluable lessons about adapting to different cultures and locations...</p>
-        <a href="Blog post/Travel/travel-europe.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-      </div>
-    </article>
-
-    <!-- Blog Card Receipt -->
-    <article class="blog-card" data-category="receipt">
-      <div class="blog-card-image">
-        <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=600&h=400&fit=crop" alt="Receipt" loading="lazy" decoding="async" fetchpriority="low">
-        <span class="blog-category">Receipt</span>
-      </div>
-      <div class="blog-card-content">
-        <div class="blog-meta">
-          <span><i class="far fa-calendar"></i> Nov 15, 2024</span>
-          <span><i class="far fa-clock"></i> 7 min</span>
-        </div>
-        <h3>Color Grading Techniques for Cinematic Look</h3>
-        <p>Achieving that cinematic color grade requires understanding color theory and the right tools. Here's my workflow...</p>
-        <a href="articolo-color-grading.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-      </div>
-    </article>
-
-  </div>
-</section>
+   <div class="blog-grid" id="blog-grid"></div>
 
 <script src="script.js"></script>
 </body>
