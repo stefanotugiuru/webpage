@@ -1,89 +1,141 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-    <meta property="og:title" content="Page title here">
-    <meta property="og:description" content="Short description for social sharing.">
-    <meta name="twitter:card" content="summary_large_image">
   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https: })(window,document,'script','dataLayer','GTM-N7WB7R8C');</script>
-<!-- End Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N7WB7R8C');
+  </script>
+  <!-- End Google Tag Manager -->
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel=\"canonical\" href=\"/\">
+
   <meta name="description" content="Stefano Maurici - Portfolio showcasing marketing campaigns, creative projects and videos">
   <title>Stefano Maurici | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+
+  <link rel="canonical" href="https://stefanotugiuru.space/portfolio.html">
+  <link rel="icon" href="/favicon.png" type="image/png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B7YL9L0958"></script>
-<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-B7YL9L0958');</script>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B7YL9L0958"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B7YL9L0958');
+  </script>
 </head>
+
 <body>
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N7WB7R8C"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N7WB7R8C"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
 <!-- End Google Tag Manager (noscript) -->
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <a href="index.html" class="logo">
-      <img src="images/LOGO.png" alt="Stefano Maurici Logo" loading="lazy" decoding="async" fetchpriority="low">
-    </a>
-    <ul class="nav-links">
-      <li><a href="about.html">About</a></li>
-      <li><a href="portfolio.html" class="active">Portfolio</a></li>
-      <li><a href="video.html">Videos</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <div class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </nav>
 
-  <!-- PORTFOLIO SECTION -->
-  <section class="portfolio">
-    <div class="section-content">
-      <h2>My Work</h2>
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+  <a href="index.html" class="logo">
+    <img src="images/LOGO.png" alt="Stefano Maurici Logo" loading="lazy">
+  </a>
 
-      <!-- PROJECT 1 -->
-      <div class="project-box">
-        <h3 class="project-title">Trash Phenomena in Social Network</h3>
-        <div class="project-content">
-          <div class="project-left">
-            <img src="images/trashmarketing.jpg" alt="Trash Marketing Project Preview" loading="lazy" decoding="async" fetchpriority="low">
-          </div>
-          <div class="project-right">
-            <p>
-              This project explores how brands use "trash" content—irony, surprise, and provocative messaging to capture attention, drive conversations, and increase memorability. By analyzing social media trends and real campaigns, it highlights how carefully designed borderline content can engage audiences while maintaining brand ethics and coherence. The study provides actionable insights for marketers and creators to stand out in the digital noise without losing narrative control.
-            </p>
-            <a href="pdfs/tesi.pdf" class="cta-button" target="_blank" rel="noopener noreferrer">Check Out My Work</a>
-          </div>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="portfolio.html" class="active">Portfolio</a></li>
+    <li><a href="video.html">Videos</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+
+  <div class="hamburger" role="button" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</nav>
+
+<!-- ================= PORTFOLIO ================= -->
+<section class="portfolio fade-in">
+  <div class="section-content">
+    <h2>My Work</h2>
+
+    <!-- PROJECT 1 -->
+    <div class="project-box">
+      <h3 class="project-title">Trash Phenomena in Social Network</h3>
+
+      <div class="project-content">
+        <div class="project-left">
+          <img
+            src="images/trashmarketing.jpg"
+            alt="Trash Marketing Project Preview"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="project-right">
+          <p>
+            This project explores how brands use "trash" content—irony, surprise, and provocative messaging to capture attention, drive conversations, and increase memorability. By analyzing social media trends and real campaigns, it highlights how carefully designed borderline content can engage audiences while maintaining brand ethics and coherence. The study provides actionable insights for marketers and creators to stand out in the digital noise without losing narrative control.
+          </p>
+          <a
+            href="pdfs/tesi.pdf"
+            class="cta-button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Check Out My Work
+          </a>
         </div>
       </div>
+    </div>
 
-      <!-- PROJECT 2 -->
-      <div class="project-box">
-        <h3 class="project-title">Marketing Plan for Blooper.AI</h3>
-        <div class="project-content">
-          <div class="project-left">
-            <img src="images/blooperlogo.jpg" alt="Blooper.AI Project Preview" loading="lazy" decoding="async" fetchpriority="low">
-          </div>
-          <div class="project-right">
-            <p>
-              This project involves introducing the start-up Blooper, an AI-driven video pre-production platform, into Europe's content-creation scene to meet the growing need for faster, affordable, and unified workflows. Blooper streamlines every step of pre-production, from script breakdown, moodboard, storyboard creation, location scouting, and polished pitch-deck generation into a single, user-friendly app. With demand from Film, TV and digital advertising industries for pre-production software continuing to climb, there's a huge market opportunity for a tool that replaces outdated, fragmented processes. Guided by deep market analysis and competitor research the plan refine Blooper positioning and product offering, highlighting its unique value proposition.
-            </p>
-            <a href="pdfs/Blooper.pdf" class="cta-button" target="_blank" rel="noopener noreferrer">Check Out My Work</a>
-          </div>
+    <!-- PROJECT 2 -->
+    <div class="project-box">
+      <h3 class="project-title">Marketing Plan for Blooper.AI</h3>
+
+      <div class="project-content">
+        <div class="project-left">
+          <img
+            src="images/blooperlogo.jpg"
+            alt="Blooper.AI Project Preview"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="project-right">
+          <p>
+            This project involves introducing the start-up Blooper, an AI-driven video pre-production platform, into Europe's content-creation scene to meet the growing need for faster, affordable, and unified workflows. Blooper streamlines every step of pre-production, from script breakdown, moodboard, storyboard creation, location scouting, and polished pitch-deck generation into a single, user-friendly app. With demand from Film, TV and digital advertising industries for pre-production software continuing to climb, there's a huge market opportunity for a tool that replaces outdated, fragmented processes. Guided by deep market analysis and competitor research the plan refine Blooper positioning and product offering, highlighting its unique value proposition.
+          </p>
+          <a
+            href="pdfs/Blooper.pdf"
+            class="cta-button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Check Out My Work
+          </a>
         </div>
       </div>
-
     </div>
-  </section>
 
-  <script src="script.js"></script>
+  </div>
+</section>
+
+<script src="script.js"></script>
 
 </body>
 </html>
