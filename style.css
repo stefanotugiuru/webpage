@@ -44,7 +44,7 @@ a:visited {
   --radius-l: 18px;
   --radius-xl: 40px;
 
-  --section-padding-top: 140px;
+  --section-padding-top: 30px;
 }
 
 /* BODY */
@@ -53,6 +53,26 @@ body {
   background-color: var(--white);
   color: var(--dark-red);
   overflow-x: hidden;
+}
+/* ============================ */
+/* MOBILE / DESKTOP UTILITIES   */
+/* ============================ */
+
+.desktop-only {
+  display: block;
+}
+
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+  .mobile-only {
+    display: block !important;
+  }
 }
 
 /* ========================================= */
@@ -259,6 +279,30 @@ body {
   line-height: 1.6;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
+/* ============================ */
+/* HERO – MOBILE REFINEMENT     */
+/* ============================ */
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100vh;
+  }
+
+  .hero-content {
+    border-width: 1px;
+    backdrop-filter: none;
+    background: rgba(0, 0, 0, 0.45);
+  }
+}
 
 /* ========================================= */
 /* CTA BUTTON (BASE)                          */
@@ -418,6 +462,25 @@ body {
 .project-right .cta-button {
   padding: 10px 26px;
   font-size: 0.8rem;
+}
+/* ============================ */
+/* PORTFOLIO – MOBILE FIX       */
+/* ============================ */
+
+@media (max-width: 768px) {
+  .project-content {
+    gap: 25px;
+  }
+
+  .project-left img,
+  .project-left iframe {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .project-right p {
+    text-align: left;
+  }
 }
 
 /* ========================================= */
@@ -781,6 +844,24 @@ body {
     gap: 18px;
   }
 }
+/* ============================ */
+/* RESPONSIVE VIDEO WRAPPER     */
+/* ============================ */
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
 
 /* ========================================= */
 /* EXPERTISE SECTION                          */
@@ -1040,6 +1121,17 @@ section h2 a:hover {
   height: auto;
   display: block;
   object-fit: cover;
+}
+/* ============================ */
+/* ABOUT – MOBILE TYPOGRAPHY    */
+/* ============================ */
+
+@media (max-width: 600px) {
+  .about-text p {
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: left;
+  }
 }
 
 /* ========================================= */
@@ -1619,7 +1711,7 @@ section h2 a:hover {
 .article-container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 60px 5%;
+  padding: 30px 5%;
 }
 
 .article-content {
@@ -1664,7 +1756,7 @@ section h2 a:hover {
 /* ARTICLE VIDEO */
 
 .article-video {
-  margin-bottom: 60px;
+  margin-bottom: 20px;
 }
 
 .article-video h2 {
@@ -1764,6 +1856,30 @@ section h2 a:hover {
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
+  }
+  /* MOBILE NAV OVERLAY */
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: rgba(249, 249, 249, 0.98);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    transform: translateX(0);
+  }
+
+  .nav-links a {
+    font-size: 1.4rem;
   }
 
   .logo img {
@@ -2121,4 +2237,18 @@ section h2 a:hover {
   .recipe-card-content p {
     font-size: 0.95rem;
   }
+}
+/* ============================ */
+/* REDUCED MOTION (MOBILE)      */
+/* ============================ */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
