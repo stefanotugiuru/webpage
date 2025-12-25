@@ -2,37 +2,58 @@
 <html lang="it">
 <head>
   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-N7WB7R8C');</script>
-<!-- End Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N7WB7R8C');
+  </script>
+  <!-- End Google Tag Manager -->
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Blog - Stefano Maurici</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Notes from my adventures and experiments. Travel stories, recipes, and personal insights by Stefano Maurici.">
+
+  <link rel="canonical" href="https://stefanotugiuru.space/blog.html">
+  <link rel="icon" href="/favicon.png" type="image/png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B7YL9L0958"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <link rel="stylesheet" href="style.css">
 
-  gtag('config', 'G-B7YL9L0958');
-</script>
+  <!-- Google tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B7YL9L0958"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B7YL9L0958');
+  </script>
 </head>
+
 <body class="blog-main-page">
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N7WB7R8C"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N7WB7R8C"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<!-- NAVBAR -->
+<!-- ================= NAVBAR ================= -->
 <nav class="navbar">
-  <a href="index.html" class="logo"><img src="images/LOGO.png" alt="Stefano Maurici Logo"></a>
+  <a href="index.html" class="logo">
+    <img src="images/LOGO.png" alt="Stefano Maurici Logo" loading="lazy">
+  </a>
+
   <ul class="nav-links">
     <li><a href="about.html">About</a></li>
     <li><a href="portfolio.html">Portfolio</a></li>
@@ -40,29 +61,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li><a href="blog.html" class="active">Blog</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <div class="hamburger">
+
+  <div
+    class="hamburger"
+    role="button"
+    aria-label="Toggle navigation"
+    aria-expanded="false"
+  >
     <span></span>
     <span></span>
     <span></span>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- ================= BLOG HERO ================= -->
 <section class="blog-hero">
   <h1>My Blog</h1>
   <p>Notes from my adventures and experiments</p>
 </section>
 
-<!-- FILTERS -->
+<!-- ================= FILTERS ================= -->
 <div class="blog-filters">
   <button class="filter-btn active" data-category="all">All</button>
   <button class="filter-btn" data-category="travel">Travel</button>
   <button class="filter-btn" data-category="recipes">Recipes</button>
 </div>
 
-<!-- BLOG GRID -->
-   <div class="blog-grid" id="blog-grid"></div>
+<!-- ================= BLOG GRID ================= -->
+<div class="blog-grid" id="blog-grid"></div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
