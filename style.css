@@ -753,6 +753,16 @@ body {
   box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
 }
 
+@media (max-width: 768px) {
+  .contact-image {
+    display: none;
+  }
+
+  .contact-container {
+    padding: 40px 20px;
+  }
+}
+
 /* ============================ */
 /* VIDEOS SECTION               */
 /* ============================ */
