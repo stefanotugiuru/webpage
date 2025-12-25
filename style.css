@@ -1133,7 +1133,12 @@ section h2 a:hover {
     text-align: left;
   }
 }
-
+/* Nasconde immagine "To sum up" su mobile */
+@media (max-width: 768px) {
+  .about-page .about-right {
+    display: none;
+  }
+}
 /* ========================================= */
 /* MY STORY SECTION                           */
 /* ========================================= */
