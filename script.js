@@ -1,7 +1,7 @@
 // ============================
 // YOUTUBE
 // ============================
-const YOUTUBE_API_KEY = 'AIzaSyBbfuKGFUNbBKof6M_xrcqIH5ZESN7lumA';
+const YOUTUBE_API_KEY = 'YOUR_API_KEY';
 const CHANNEL_ID = 'UCjEQh8twAgk0G1S8Z9OY_sQ';
 const MAX_VIDEOS = 16;
 
@@ -14,99 +14,82 @@ async function loadYouTubeVideos() {
       `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&type=video&maxResults=${MAX_VIDEOS}`
     );
 
-    const data = await response.json();
-    videoGrid.innerHTML = '';
+    if (!response.ok) throw new Error('YouTube API error');
 
-    data.items.forEach((item) => {
-      // 🔑 WRAPPER
+    const data = await response.json();
+    const fragment = document.createDocumentFragment();
+
+    data.items.forEach(item => {
       const container = document.createElement('div');
       container.className = 'video-container';
 
-      // 🔑 IFRAME
       const iframe = document.createElement('iframe');
       iframe.src = `https://www.youtube.com/embed/${item.id.videoId}`;
       iframe.allowFullscreen = true;
-      iframe.setAttribute('loading', 'lazy');
+      iframe.loading = 'lazy';
 
       container.appendChild(iframe);
-      videoGrid.appendChild(container);
+      fragment.appendChild(container);
     });
-  } catch (e) {
-    console.error(e);
+
+    videoGrid.innerHTML = '';
+    videoGrid.appendChild(fragment);
+
+  } catch (err) {
+    console.error('YouTube error:', err);
   }
 }
+
 // ============================
-// BLOG AUTO
+// BLOG
 // ============================
 function initBlog() {
   const grid = document.getElementById("blog-grid");
-  if (!grid) return;
-
   const filterButtons = document.querySelectorAll(".filter-btn");
-  let allPosts = [];
-
-  fetch("data/posts.json")
-    .then(res => res.json())
-    .then(posts => {
-      allPosts = posts;
-      render("all");
-    });
-
-  function render(category) {
-    grid.innerHTML = "";
-    allPosts
-      .filter(p => category === "all" || p.category === category)
-      .forEach(post => {
-        grid.innerHTML += `
-          <a href="${post.url}" class="blog-card">
-            <div class="blog-card-image">
-              <img src="${post.image}" alt="${post.title}">
-              <span class="blog-category">${post.category}</span>
-            </div>
-            <div class="blog-card-content">
-              <h3>${post.title}</h3>
-            </div>
-          </a>
-        `;
-      });
-  }
-
-  filterButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      filterButtons.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      render(btn.dataset.category);
-    });
-  });
-}
-// ============================
-// Aggiornamento blog automatico
-// ============================
-document.addEventListener("DOMContentLoaded", () => {
-  const grid = document.getElementById("blog-grid");
   if (!grid) return;
 
   fetch("data/posts.json")
     .then(res => res.json())
     .then(posts => {
-      grid.innerHTML = "";
+      render(posts, "all");
 
-      posts.forEach(post => {
-        grid.innerHTML += `
-          <a href="${post.url}" class="blog-card">
-            <div class="blog-card-image">
-              <img src="${post.image}" alt="${post.title}">
-              <span class="blog-category">${post.category}</span>
-            </div>
-            <div class="blog-card-content">
-              <h3>${post.title}</h3>
-            </div>
-          </a>
-        `;
+      filterButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          filterButtons.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          render(posts, btn.dataset.category);
+        });
       });
     })
-    .catch(err => console.error("Errore blog:", err));
-});
+    .catch(err => console.error("Blog error:", err));
+
+  function render(posts, category) {
+    const fragment = document.createDocumentFragment();
+    grid.innerHTML = "";
+
+    posts
+      .filter(p => category === "all" || p.category === category)
+      .forEach(post => {
+        const card = document.createElement("a");
+        card.href = post.url;
+        card.className = "blog-card";
+
+        card.innerHTML = `
+          <div class="blog-card-image">
+            <img src="${post.image}" alt="${post.title}" loading="lazy">
+            <span class="blog-category">${post.category}</span>
+          </div>
+          <div class="blog-card-content">
+            <h3>${post.title}</h3>
+          </div>
+        `;
+
+        fragment.appendChild(card);
+      });
+
+    grid.appendChild(fragment);
+  }
+}
 
 // ============================
 // MORE RECIPES
@@ -120,27 +103,30 @@ function initMoreRecipes() {
   fetch("../../data/posts.json")
     .then(res => res.json())
     .then(posts => {
-      const recipes = posts
-        .filter(p =>
-          p.category === "recipes" &&
-          !p.url.includes(currentFile)
-        )
-        .slice(0, 5);
+      const fragment = document.createDocumentFragment();
 
-      container.innerHTML = "";
+      posts
+        .filter(p => p.category === "recipes" && !p.url.includes(currentFile))
+        .slice(0, 5)
+        .forEach(recipe => {
+          const card = document.createElement("a");
+          card.href = `../../${recipe.url}`;
+          card.className = "recipe-card";
 
-      recipes.forEach(recipe => {
-        container.innerHTML += `
-          <a href="../../${recipe.url}" class="recipe-card">
+          card.innerHTML = `
             <div class="recipe-card-image">
-              <img src="../../${recipe.image}" alt="${recipe.title}">
+              <img src="../../${recipe.image}" alt="${recipe.title}" loading="lazy">
             </div>
             <div class="recipe-card-content">
               <h3>${recipe.title}</h3>
             </div>
-          </a>
-        `;
-      });
+          `;
+
+          fragment.appendChild(card);
+        });
+
+      container.innerHTML = "";
+      container.appendChild(fragment);
     })
     .catch(err => console.error("More recipes error:", err));
 }
@@ -151,12 +137,21 @@ function initMoreRecipes() {
 function initNavbar() {
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
-  if (!hamburger || !navLinks) return;
+  const navbar = document.querySelector('.navbar');
+  if (!hamburger || !navLinks || !navbar) return;
 
   hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
     hamburger.classList.toggle('open');
+    navLinks.classList.toggle('active');
+    hamburger.setAttribute(
+      'aria-expanded',
+      hamburger.classList.contains('open')
+    );
   });
+
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
 }
 
 // ============================
@@ -168,4 +163,3 @@ document.addEventListener("DOMContentLoaded", () => {
   initMoreRecipes();
   initNavbar();
 });
-
