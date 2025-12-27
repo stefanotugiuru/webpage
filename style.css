@@ -392,6 +392,8 @@ body {
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
   margin-bottom: 35px;
   padding: 22px;
+  height: 280px;          /* 🔥 STESSA ALTEZZA DEL BOX SOPRA */
+  overflow: hidden;       /* 🔥 impedisce che cresca */
   animation: fadeInUp 0.8s ease;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
