@@ -422,9 +422,8 @@ body {
 }
 
 .project-left {
-  flex: 0.7;
-  min-width: 130px;
-  max-width: 200px;
+  flex: 0 0 240px;
+  max-width: 240px;
 }
 
 .project-left img {
@@ -433,6 +432,7 @@ body {
   max-height: 180px;
   object-fit: cover;
   border-radius: 8px;
+  aspect-ratio: 1 / 1;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
 }
 
