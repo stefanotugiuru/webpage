@@ -440,12 +440,14 @@ body {
 
 .portfolio .project-left iframe {
   width: 100%;
-  max-width: 300px;
-  aspect-ratio: 16 / 9;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
   display: block;
   border: none;
   border-radius: 8px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  max-height: 180px;   /* 🔥 STESSA ALTEZZA DELL’IMMAGINE */
+  aspect-ratio: auto; /* ← rimuove l’allungamento */
 }
 
 .project-right {
