@@ -29,32 +29,40 @@ async function loadYouTubeVideos() {
 
     videoGrid.innerHTML = '';
 
-    data.items.forEach(item => {
-      const videoId = item?.id?.videoId;
-      if (!videoId) return;
+data.items.forEach(item => {
+  const videoId = item.id.videoId;
 
-     const videoBox = document.createElement('div');
-videoBox.className = 'video-box';
+  const videoBox = document.createElement('div');
+  videoBox.className = 'video-box';
 
-const iframe = document.createElement('iframe');
-iframe.src = `https://www.youtube.com/embed/${videoId}`;
-iframe.loading = 'lazy';
-iframe.title = 'YouTube video player';
-iframe.allow =
-  'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-iframe.allowFullscreen = true;
+  videoBox.innerHTML = `
+    <div class="video-thumb" data-id="${videoId}">
+      <img 
+        src="https://i.ytimg.com/vi/${videoId}/hqdefault.jpg"
+        alt="YouTube video"
+        loading="lazy"
+        decoding="async"
+      >
+      <span class="play-btn">▶</span>
+    </div>
+  `;
 
-videoBox.appendChild(iframe);
-videoGrid.appendChild(videoBox);
-    });
+  videoGrid.appendChild(videoBox);
+});
 
-  } catch (error) {
-    console.warn('YouTube videos not available:', error.message);
-    videoGrid.style.display = 'none';
-  }
-}
+document.addEventListener('click', e => {
+  const thumb = e.target.closest('.video-thumb');
+  if (!thumb) return;
 
-document.addEventListener('DOMContentLoaded', loadYouTubeVideos);
+  const id = thumb.dataset.id;
+  thumb.outerHTML = `
+    <iframe 
+      src="https://www.youtube.com/embed/${id}?autoplay=1"
+      loading="lazy"
+      allowfullscreen
+    ></iframe>
+  `;
+});
 
 // ============================
 // BLOG
