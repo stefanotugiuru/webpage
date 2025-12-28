@@ -384,7 +384,6 @@ body {
   background: var(--gold);
 }
 
-/* PROJECT BOX */
 
 .project-box {
   background-color: #fff;
@@ -392,10 +391,21 @@ body {
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
   margin-bottom: 35px;
   padding: 22px;
-  height: 280px;          /* 🔥 STESSA ALTEZZA DEL BOX SOPRA */
-  overflow: hidden;       /* 🔥 impedisce che cresca */
+  height: auto;          
   animation: fadeInUp 0.8s ease;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.home .project-box {
+  max-height: 280px;
+  overflow: hidden;
+}
+
+.home .project-right p {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .project-box:hover {
