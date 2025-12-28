@@ -1289,15 +1289,15 @@ section h2 a:hover {
 /* CTA variant inside final quote */
 
 .final-quote .cta-button {
-  background: #b3131b;
-  border-color: #b3131b;
+  background: var(--dark-red);
+  border-color: var(--dark-red);
   padding: 10px 28px;
   font-size: 1rem;
 }
 
 .final-quote .cta-button:hover {
-  background: #d21d27;
-  border-color: #d21d27;
+  background: var(--dark-red);
+  border-color: var(--dark-red);
   transform: scale(1.04);
   box-shadow: none;
 }
