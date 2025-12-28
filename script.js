@@ -33,14 +33,18 @@ async function loadYouTubeVideos() {
       const videoId = item?.id?.videoId;
       if (!videoId) return;
 
-      const iframe = document.createElement('iframe');
-      iframe.src = `https://www.youtube.com/embed/${videoId}`;
-      iframe.loading = 'lazy';
-      iframe.allow =
-        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-      iframe.allowFullscreen = true;
+     const videoBox = document.createElement('div');
+videoBox.className = 'video-box';
 
-      videoGrid.appendChild(iframe);
+const iframe = document.createElement('iframe');
+iframe.src = `https://www.youtube.com/embed/${videoId}`;
+iframe.loading = 'lazy';
+iframe.allow =
+  'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+iframe.allowFullscreen = true;
+
+videoBox.appendChild(iframe);
+videoGrid.appendChild(videoBox);
     });
 
   } catch (error) {
