@@ -766,115 +766,113 @@ body {
     padding: 40px 20px;
   }
 }
+/* ========================================= */
+/* VIDEOS SECTION – PROFESSIONAL LAYOUT      */
+/* ========================================= */
 
-/* ============================ */
-/* VIDEOS SECTION               */
-/* ============================ */
 .videos {
-    padding-top: 140px;
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-bottom: 80px;
-    min-height: 100vh;
+  padding-top: 140px;
+  padding-bottom: 90px;
+  padding-left: 5%;
+  padding-right: 5%;
+  min-height: 100vh;
+  background: #fff;
 }
 
+/* SECTION TITLE */
 .videos h2 {
-    font-family: var(--font-secondary);
-    font-size: 2.4rem;
-    color: var(--dark-red);
-    text-align: center;
-    margin-bottom: 60px;
-    position: relative;
-    text-transform: uppercase;
+  font-family: var(--font-secondary);
+  font-size: 2.6rem;
+  color: var(--dark-red);
+  text-align: center;
+  margin-bottom: 70px;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .videos h2::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: var(--gold);
+  content: '';
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 3px;
+  background: var(--gold);
 }
 
-/* GRIGLIA VIDEO – 4 COLONNE SU DESKTOP */
+/* ========================================= */
+/* VIDEO GRID                                */
+/* ========================================= */
+
 .video-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 VIDEO PER RIGA */
-    gap: 28px;
-    max-width: 1300px;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonne desktop */
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* BOX VIDEO */
+/* ========================================= */
+/* VIDEO CARD                                */
+/* ========================================= */
+
 .video-container {
   position: relative;
-  width: 100%;
-  padding-top: 100%;          /* 🔑 ALTEZZA QUADRATA */
+  aspect-ratio: 16 / 9;
   overflow: hidden;
-  border-radius: 15px;
+  border-radius: 18px;
   background: #000;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
 }
 
-.video-container.show {
-    opacity: 1;
-    transform: translateY(0);
+.video-container:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 32px 70px rgba(0, 0, 0, 0.28);
 }
+
+/* IFRAME */
 .video-container iframe {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
   border: none;
   display: block;
 }
 
-/* ============================ */
-/* RESPONSIVE VIDEO GRID        */
-/* ============================ */
+/* ========================================= */
+/* RESPONSIVE BREAKPOINTS                    */
+/* ========================================= */
 
-/* Tablet: 3 video per riga */
-@media (max-width: 1100px) {
-  .video-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* Mobile medio: 2 video per riga */
-@media (max-width: 768px) {
+/* Tablet */
+@media (max-width: 1024px) {
   .video-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 22px;
+    gap: 32px;
+  }
+
+  .videos h2 {
+    font-size: 2.2rem;
   }
 }
 
-/* Mobile piccolo: 1 video per riga */
-@media (max-width: 550px) {
+/* Mobile */
+@media (max-width: 600px) {
+  .videos {
+    padding-top: 110px;
+    padding-bottom: 70px;
+  }
+
   .video-grid {
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 26px;
   }
-}
-/* ============================ */
-/* RESPONSIVE VIDEO WRAPPER     */
-/* ============================ */
 
-.video-wrapper {
-  position: relative;
-  width: 100%;
-  padding-top: 56.25%;
-  overflow: hidden;
-  border-radius: 8px;
-}
-
-.video-wrapper iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  .videos h2 {
+    font-size: 1.9rem;
+    margin-bottom: 55px;
+  }
 }
 
 /* ========================================= */
