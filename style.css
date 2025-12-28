@@ -827,10 +827,10 @@ body {
 /* VIDEO BOX (PIÙ GRANDI)       */
 /* ============================ */
 
-.video-container {
+.video-box {
     position: relative;
     width: 100%;
-    aspect-ratio: 4 / 5;              /* 🔑 PIÙ ALTO E MODERNO */
+    aspect-ratio: 4 / 5;   /* 🔑 box più alti */
     border-radius: 20px;
     overflow: hidden;
     background: #000;
@@ -838,8 +838,7 @@ body {
     transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-/* Hover elegante */
-.video-container:hover {
+.video-box:hover {
     transform: translateY(-10px);
     box-shadow: 0 22px 55px rgba(0,0,0,0.22);
 }
@@ -848,7 +847,7 @@ body {
 /* IFRAME                       */
 /* ============================ */
 
-.video-container iframe {
+.video-box iframe {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -861,7 +860,6 @@ body {
 /* RESPONSIVE                   */
 /* ============================ */
 
-/* Tablet */
 @media (max-width: 1200px) {
     .video-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -869,7 +867,6 @@ body {
     }
 }
 
-/* Mobile */
 @media (max-width: 768px) {
     .video-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -877,7 +874,6 @@ body {
     }
 }
 
-/* Mobile piccolo */
 @media (max-width: 520px) {
     .video-grid {
         grid-template-columns: 1fr;
