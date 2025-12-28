@@ -29,7 +29,10 @@ async function loadYouTubeVideos() {
 
     videoGrid.innerHTML = '';
 
-    data.items.forEach(item => {
+   data.items
+     .slice(0, MAX_VIDEOS)
+     .forEach(item => {
+       
       const videoId = item.id.videoId;
       if (!videoId) return;
 
