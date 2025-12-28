@@ -2410,3 +2410,16 @@ body {
   color: #fff;
   transform: translateY(-3px);
 }
+@media (max-width: 768px) {
+  .navbar,
+  .hero-content {
+    backdrop-filter: none !important;
+  }
+}
+@media (max-width: 768px) {
+  .fade-in {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
