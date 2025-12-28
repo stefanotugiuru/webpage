@@ -39,6 +39,7 @@ videoBox.className = 'video-box';
 const iframe = document.createElement('iframe');
 iframe.src = `https://www.youtube.com/embed/${videoId}`;
 iframe.loading = 'lazy';
+iframe.title = 'YouTube video player';
 iframe.allow =
   'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
 iframe.allowFullscreen = true;
