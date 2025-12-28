@@ -1177,7 +1177,7 @@ section h2 a:hover {
   font-weight: 700;
   text-align: center;
   margin-bottom: 50px;
-  color: var(--text-color);
+  color: var(--dark-red);
   letter-spacing: 0.5px;
 }
 
@@ -1253,10 +1253,6 @@ section h2 a:hover {
   font-weight: 700;
   color: var(--accent-red);
   margin-bottom: 8px;
-}
-
-.timeline-item:nth-child(even) .year {
-  color: var(--accent-purple);
 }
 
 .timeline-content p {
