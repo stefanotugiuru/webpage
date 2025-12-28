@@ -29,38 +29,47 @@ async function loadYouTubeVideos() {
 
     videoGrid.innerHTML = '';
 
-data.items.forEach(item => {
-  const videoId = item.id.videoId;
+    data.items.forEach(item => {
+      const videoId = item.id.videoId;
+      if (!videoId) return;
 
-  const videoBox = document.createElement('div');
-  videoBox.className = 'video-box';
+      const videoBox = document.createElement('div');
+      videoBox.className = 'video-box';
 
-  videoBox.innerHTML = `
-    <div class="video-thumb" data-id="${videoId}">
-      <img 
-        src="https://i.ytimg.com/vi/${videoId}/hqdefault.jpg"
-        alt="YouTube video"
-        loading="lazy"
-        decoding="async"
-      >
-      <span class="play-btn">▶</span>
-    </div>
-  `;
+      videoBox.innerHTML = `
+        <div class="video-thumb" data-id="${videoId}">
+          <img
+            src="https://i.ytimg.com/vi/${videoId}/hqdefault.jpg"
+            alt="YouTube video"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
+      `;
 
-  videoGrid.appendChild(videoBox);
-});
+      videoGrid.appendChild(videoBox);
+    });
 
+  } catch (error) {
+    console.warn('YouTube videos not available:', error.message);
+    videoGrid.style.display = 'none';
+  }
+}
+
+// 👉 CLICK HANDLER (UNA SOLA VOLTA, FUORI)
 document.addEventListener('click', e => {
   const thumb = e.target.closest('.video-thumb');
   if (!thumb) return;
 
   const id = thumb.dataset.id;
+
   thumb.outerHTML = `
-    <iframe 
+    <iframe
       src="https://www.youtube.com/embed/${id}?autoplay=1"
       loading="lazy"
-      allowfullscreen
-    ></iframe>
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
   `;
 });
 
