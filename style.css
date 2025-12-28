@@ -349,13 +349,13 @@ body {
 /* ========================================= */
 /* PORTFOLIO SECTION                          */
 /* ========================================= */
-
 .portfolio {
   padding-top: 140px;
   padding-left: 5%;
   padding-right: 5%;
   padding-bottom: 60px;
-  min-height: 100vh;
+  display: block;       /* 🔑 forza layout normale */
+  min-height: auto;     /* sicurezza */
 }
 
 .section-content {
@@ -384,6 +384,7 @@ body {
   background: var(--gold);
 }
 
+/* PROJECT BOX */
 
 .project-box {
   background-color: #fff;
@@ -477,6 +478,7 @@ body {
   padding: 10px 26px;
   font-size: 0.8rem;
 }
+
 /* ============================ */
 /* PORTFOLIO – MOBILE FIX       */
 /* ============================ */
@@ -2291,4 +2293,53 @@ section h2 a:hover {
 body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+}
+/* ========================================= */
+/* HOME – MOBILE CLEAN MODE (NO MEDIA)       */
+/* ========================================= */
+
+@media (max-width: 768px) {
+
+  /* NASCONDE COMPLETAMENTE IMMAGINI E VIDEO */
+  .home .project-left {
+    display: none;
+  }
+
+  /* CARD COMPATTA */
+  .home .project-box {
+    padding: 18px;
+    margin-bottom: 24px;
+  }
+
+  /* STRUTTURA TESTUALE */
+  .home .project-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* TITOLO */
+  .home .project-title {
+    font-size: 1.15rem;
+    margin-bottom: 6px;
+  }
+
+  /* TESTO BREVE E LEGGIBILE */
+  .home .project-right p {
+    font-size: 0.95rem;
+    line-height: 1.45;
+    text-align: left;
+    margin-bottom: 10px;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* CTA COMPATTA */
+  .home .project-right .cta-button {
+    align-self: flex-start;
+    padding: 7px 20px;
+    font-size: 0.75rem;
+  }
 }
