@@ -1,44 +1,55 @@
 // ============================
 // YOUTUBE
 // ============================
-const YOUTUBE_API_KEY = 'YOUR_API_KEY';
+
+const YOUTUBE_API_KEY = 'AIzaSyBbfuKGFUNbBKof6M_xrcqIH5ZESN7lumA';
 const CHANNEL_ID = 'UCjEQh8twAgk0G1S8Z9OY_sQ';
 const MAX_VIDEOS = 16;
+
+const YOUTUBE_API_URL =
+  `https://www.googleapis.com/youtube/v3/search` +
+  `?key=${YOUTUBE_API_KEY}` +
+  `&channelId=${CHANNEL_ID}` +
+  `&part=id` +
+  `&order=date` +
+  `&type=video` +
+  `&maxResults=${MAX_VIDEOS}` +
+  `&fields=items(id/videoId)`;
 
 async function loadYouTubeVideos() {
   const videoGrid = document.getElementById('videoGrid');
   if (!videoGrid) return;
 
   try {
-    const response = await fetch(
-      `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&type=video&maxResults=${MAX_VIDEOS}`
-    );
-
+    const response = await fetch(YOUTUBE_API_URL);
     if (!response.ok) throw new Error('YouTube API error');
 
     const data = await response.json();
-    const fragment = document.createDocumentFragment();
-
-    data.items.forEach(item => {
-      const container = document.createElement('div');
-      container.className = 'video-container';
-
-      const iframe = document.createElement('iframe');
-      iframe.src = `https://www.youtube.com/embed/${item.id.videoId}`;
-      iframe.allowFullscreen = true;
-      iframe.loading = 'lazy';
-
-      container.appendChild(iframe);
-      fragment.appendChild(container);
-    });
+    if (!data.items || !data.items.length) return;
 
     videoGrid.innerHTML = '';
-    videoGrid.appendChild(fragment);
 
-  } catch (err) {
-    console.error('YouTube error:', err);
+    data.items.forEach(item => {
+      const videoId = item?.id?.videoId;
+      if (!videoId) return;
+
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube.com/embed/${videoId}`;
+      iframe.loading = 'lazy';
+      iframe.allow =
+        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+
+      videoGrid.appendChild(iframe);
+    });
+
+  } catch (error) {
+    console.warn('YouTube videos not available:', error.message);
+    videoGrid.style.display = 'none';
   }
 }
+
+document.addEventListener('DOMContentLoaded', loadYouTubeVideos);
 
 // ============================
 // BLOG
