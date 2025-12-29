@@ -29,11 +29,7 @@ async function loadYouTubeVideos() {
 
     videoGrid.innerHTML = '';
 
-<<<<<<< Updated upstream
-   data.items
-     .slice(0, MAX_VIDEOS)
-     .forEach(item => {
-       
+    data.items.forEach(item => {
       const videoId = item.id.videoId;
       if (!videoId) return;
 
@@ -53,34 +49,13 @@ async function loadYouTubeVideos() {
 
       videoGrid.appendChild(videoBox);
     });
-=======
-data.items.forEach(item => {
-  const videoId = item.id.videoId;
 
-  const videoBox = document.createElement('div');
-  videoBox.className = 'video-box';
+  } catch (error) {
+    console.warn('YouTube videos not available:', error.message);
+    videoGrid.style.display = 'none';
+  }
+}
 
-  videoBox.innerHTML = `
-    <div class="video-thumb" data-id="${videoId}">
-      <img 
-        src="https://i.ytimg.com/vi/${videoId}/hqdefault.jpg"
-        alt="YouTube video"
-        loading="lazy"
-        decoding="async"
-      >
-      <span class="play-btn">▶</span>
-    </div>
-  `;
-
-  videoGrid.appendChild(videoBox);
-});
->>>>>>> Stashed changes
-
-document.addEventListener('click', e => {
-  const thumb = e.target.closest('.video-thumb');
-  if (!thumb) return;
-
-<<<<<<< Updated upstream
 // 👉 CLICK HANDLER (UNA SOLA VOLTA, FUORI)
 document.addEventListener('click', e => {
   const thumb = e.target.closest('.video-thumb');
@@ -95,15 +70,6 @@ document.addEventListener('click', e => {
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen>
     </iframe>
-=======
-  const id = thumb.dataset.id;
-  thumb.outerHTML = `
-    <iframe 
-      src="https://www.youtube.com/embed/${id}?autoplay=1"
-      loading="lazy"
-      allowfullscreen
-    ></iframe>
->>>>>>> Stashed changes
   `;
 });
 

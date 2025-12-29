@@ -34,10 +34,19 @@
 <link rel="icon" type="image/png" sizes="48x48" href="favicon.png">
 
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Google Fonts optimized -->
+<link
+  rel="preload"
+  as="style"
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+  onload="this.onload=null;this.rel='stylesheet'">
+
+<noscript>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap">
+</noscript>
+
   <link rel="stylesheet" href="style.css">
 
 </head>
@@ -73,9 +82,15 @@
 
 <!-- DESKTOP VIDEO -->
 <section class="hero">
-  <video class="hero-video desktop-only" autoplay muted loop playsinline>
-    <source src="videos/Loop.webm" type="video/webm">
-    <source src="videos/Loop.mp4" type="video/mp4">
+  <video
+  class="hero-video desktop-only"
+  autoplay
+  muted
+  loop
+  playsinline
+  preload="metadata">
+    <source src="https://pub-0fec706e3c4943a8afac4392d53f0b8a.r2.dev/Loop.v1.webm" type="video/webm">
+    <source src="https://pub-0fec706e3c4943a8afac4392d53f0b8a.r2.dev/Loop.v1.mp4" type="video/mp4">
   </video>
 
 <!-- MOBILE IMAGE -->
@@ -92,7 +107,7 @@
 <section class="about fade-in">
   <div class="about-content">
     <div class="about-image-wrapper">
-      <img src="images/eadadiploma.jpg" alt="Stefano portrait" loading="lazy">
+      <img src="https://pub-0fec706e3c4943a8afac4392d53f0b8a.r2.dev/eadadiploma.jpg" alt="Stefano portrait">
     </div>
 
     <div class="about-text">
