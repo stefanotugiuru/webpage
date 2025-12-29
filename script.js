@@ -127,6 +127,7 @@ function initBlog() {
 // ============================
 // MORE RECIPES
 // ============================
+
 function initMoreRecipes() {
   const container = document.getElementById("more-recipes-list");
   if (!container) return;
@@ -134,21 +135,26 @@ function initMoreRecipes() {
   const currentFile = window.location.pathname.split("/").pop();
 
   fetch("../../data/posts.json")
-    .then(res => res.json())
+    .then(res => {
+      if (!res.ok) throw new Error("posts.json not found");
+      return res.json();
+    })
     .then(posts => {
       const fragment = document.createDocumentFragment();
 
       posts
-        .filter(p => p.category === "recipes" && !p.url.includes(currentFile))
-        .slice(0, 5)
+        .filter(p => p.category === "recipes" && !p.url.endsWith(currentFile))
         .forEach(recipe => {
           const card = document.createElement("a");
-          card.href = `../../${recipe.url}`;
+          card.href = recipe.url;
           card.className = "recipe-card";
 
           card.innerHTML = `
             <div class="recipe-card-image">
-              <img src="../../${recipe.image}" alt="${recipe.title}" loading="lazy">
+              <img
+                src="../../${recipe.image}"
+                alt="${recipe.title}"
+                loading="lazy">
             </div>
             <div class="recipe-card-content">
               <h3>${recipe.title}</h3>

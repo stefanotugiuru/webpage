@@ -1,8 +1,14 @@
 [
-{
-  "title": "Pipi e Patati ",
-  "category": "recipes",
-  "image": "images/blog/pipiepatati.jpg",
-  "url": "Blog post/recipes/pipiepatati.html"
-}
+  {
+    "title": "Pipi e Patati",
+    "category": "recipes",
+    "image": "images/blog/pipiepatati.jpg",
+    "url": "pipiepatati.html"
+  },
+  {
+    "title": "Baked Sea Bream with Cherry Tomatoes and Lemon",
+    "category": "recipes",
+    "image": "images/blog/saraghialforno.jpg",
+    "url": "bakedseabreamwithlemon.html"
+  }
 ]
