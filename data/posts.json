@@ -22,6 +22,30 @@
   "category": "recipes",
   "image": "images/blog/cannelloni.jpg",
   "url": "cannellonispinaciragu.html"
+},
+{
+  "title": "Butifarra with White Beans (Mongetes)",
+  "category": "recipes",
+  "image": "images/blog/butifarra.jpg",
+  "url": "butifarra.html"
+},
+{
+  "title": "Farfalle with Pea Cream, Mushrooms and Sausage",
+  "category": "recipes",
+  "image": "images/blog/farfalle-crema-di-piselli.jpg",
+  "url": "farfallecremadipiselliesalsiccia.html"
+},
+{
+  "title": "Cucumber Rolls with Salmon, Avocado and Burrata",
+  "category": "recipes",
+  "image": "images/blog/cucumber-roll.jpg",
+  "url": "cucumber-roll.html"
+},
+{
+  "title": "Spaghetti del Poverello",
+  "category": "recipes",
+  "image": "images/blog/spaghetti-del-poverello.jpg",
+  "url": "spaghetti-del-poverello.html"
 }
 
 ]
