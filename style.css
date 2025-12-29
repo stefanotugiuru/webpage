@@ -2423,3 +2423,11 @@ body {
     transform: none !important;
   }
 }
+/* ============================
+   ABOUT IMAGE – HIDE ON MOBILE
+   ============================ */
+@media (max-width: 768px) {
+  .about-image-wrapper {
+    display: none;
+  }
+}
