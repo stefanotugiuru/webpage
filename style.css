@@ -2118,7 +2118,7 @@ section h2 a:hover {
 /* ============================ */
 .more-recipes {
   margin-top: 80px;
-  padding: 60px 5%;
+  padding: 40px 5%;
   background: #faf9f7;
   border-top: 1px solid #eee;
 }
@@ -2142,11 +2142,11 @@ section h2 a:hover {
   background: var(--gold);
 }
 
-/* GRID */
-.more-recipes-grid {
+/* list*/
+.more-recipes-list {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 56px;
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -2154,7 +2154,7 @@ section h2 a:hover {
 /* CARD */
 .recipe-card {
   display: flex;
-  gap: 32px;
+  gap: 56px;
   background: #ffffff;
   border-radius: 18px;
   max-width: 780px;
@@ -2164,6 +2164,14 @@ section h2 a:hover {
   color: inherit;
   box-shadow: 0 8px 30px rgba(0,0,0,0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#more-recipes-list > * {
+  margin-bottom: 56px;
+}
+
+#more-recipes-list > *:last-child {
+  margin-bottom: 0;
 }
 
 /* sicurezza: niente underline in nessuno stato */

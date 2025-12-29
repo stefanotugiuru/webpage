@@ -10,5 +10,11 @@
     "category": "recipes",
     "image": "images/blog/saraghialforno.jpg",
     "url": "bakedseabreamwithlemon.html"
+  },
+  {
+    "title": "Chocolate Risotto with Caramelized Apricots",
+    "category": "recipes",
+    "image": "images/blog/risottoalcioccolato.jpg",
+    "url": "risottoalcioccolato.html"
   }
 ]

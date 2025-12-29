@@ -104,7 +104,7 @@ function initBlog() {
       .filter(p => category === "all" || p.category === category)
       .forEach(post => {
         const card = document.createElement("a");
-        card.href = post.url;
+       card.href = `Blog post/recipes/${post.url}`;
         card.className = "blog-card";
 
         card.innerHTML = `
