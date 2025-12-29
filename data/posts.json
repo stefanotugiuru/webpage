@@ -46,6 +46,25 @@
   "category": "recipes",
   "image": "images/blog/spaghetti-del-poverello.jpg",
   "url": "spaghetti-del-poverello.html"
+},
+{
+  "title": "Creamy Farrotto with Sausage, Gorgonzola and ’Nduja",
+  "category": "recipes",
+  "image": "images/blog/farrotto-salsiccia-zola-nduja.jpg",
+  "url": "farrotto-salsiccia-zola-nduja.html"
+},
+{
+  "title": "Paccheri in Vodka Sauce with Italian Sausage",
+  "category": "recipes",
+  "image": "images/blog/paccheri-vodka-sauce-sausage.jpg",
+  "url": "paccheri-vodka-sauce-sausage.html"
+},
+{
+  "title": "Pappardelle with Cherry Tomatoes, Spinach and Burrata",
+  "category": "recipes",
+  "image": "images/blog/pappardelle-cherry-burrata.jpg",
+  "url": "pappardelle-cherry-burrata.html"
 }
+
 
 ]
