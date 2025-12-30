@@ -150,16 +150,21 @@ function initMoreRecipes() {
           card.className = "recipe-card";
 
           card.innerHTML = `
-            <div class="recipe-card-image">
-              <img
-                src="../../${recipe.image}"
-                alt="${recipe.title}"
-                loading="lazy">
-            </div>
-            <div class="recipe-card-content">
-              <h3>${recipe.title}</h3>
-            </div>
-          `;
+  <div class="blog-card-image">
+    <img
+      src="${post.image}"
+      alt="${post.title}"
+      width="1200"
+      height="800"
+      loading="lazy"
+      decoding="async">
+    <span class="blog-category">${post.category}</span>
+  </div>
+  <div class="blog-card-content">
+    <h3>${post.title}</h3>
+  </div>
+`;
+
 
           fragment.appendChild(card);
         });
