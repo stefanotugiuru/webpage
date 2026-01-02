@@ -127,14 +127,15 @@ function initBlog() {
 // ============================
 // MORE RECIPES
 // ============================
-
 function initMoreRecipes() {
   const container = document.getElementById("more-recipes-list");
   if (!container) return;
 
-  const currentFile = window.location.pathname.split("/").pop();
+  const currentFile = decodeURIComponent(
+    window.location.pathname.split("/").pop()
+  );
 
-  fetch("../../data/posts.json")
+  fetch("/data/posts.json")
     .then(res => {
       if (!res.ok) throw new Error("posts.json not found");
       return res.json();
@@ -143,28 +144,26 @@ function initMoreRecipes() {
       const fragment = document.createDocumentFragment();
 
       posts
-        .filter(p => p.category === "recipes" && !p.url.endsWith(currentFile))
+        .filter(p => p.category === "recipes" && p.url !== currentFile)
+        .slice(0, 9)
         .forEach(recipe => {
           const card = document.createElement("a");
-          card.href = recipe.url;
+          card.href = `/Blog post/recipes/${recipe.url}`;
           card.className = "recipe-card";
 
           card.innerHTML = `
-  <div class="blog-card-image">
-    <img
-      src="${post.image}"
-      alt="${post.title}"
-      width="1200"
-      height="800"
-      loading="lazy"
-      decoding="async">
-    <span class="blog-category">${post.category}</span>
-  </div>
-  <div class="blog-card-content">
-    <h3>${post.title}</h3>
-  </div>
-`;
-
+            <div class="recipe-card-image">
+              <img
+                src="../../${recipe.image}"
+                alt="${recipe.title}"
+                loading="lazy"
+                decoding="async">
+            </div>
+            <div class="recipe-card-content">
+              <span class="recipe-category">${recipe.category}</span>
+              <h3>${recipe.title}</h3>
+            </div>
+          `;
 
           fragment.appendChild(card);
         });
