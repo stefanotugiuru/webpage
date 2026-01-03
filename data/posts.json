@@ -66,10 +66,16 @@
   "url": "pappardelle-cherry-burrata.html"
 },
 {
-  "title": "Pasta with Zucchini, Mussels",
+  "title": "Pasta with Zucchini and Mussels",
   "category": "recipes",
   "image": "images/blog/pasta-zucchine-cozze.webp",
   "url": "pasta-zucchine-cozze.html"
+},
+{
+  "title": "Moving to Barcelona",
+  "url": "moving-to-barcelona.html",
+  "image": "images/blog/barcelona-view.webp",
+  "category": "guides"
 }
 
 ]

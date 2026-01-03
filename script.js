@@ -101,10 +101,28 @@ function initBlog() {
     grid.innerHTML = "";
 
     posts
-      .filter(p => category === "all" || p.category === category)
+     .filter(p => {
+  const selected = category.toLowerCase();
+  const postCategory = (p.category || "").toLowerCase();
+
+  if (selected === "all") return true;
+  if (selected === "guides") return postCategory === "guides";
+  if (selected === "travel") return postCategory === "travel";
+  if (selected === "recipes") return postCategory === "recipes";
+
+  return false;
+})
+
       .forEach(post => {
         const card = document.createElement("a");
-       card.href = `Blog post/recipes/${post.url}`;
+
+       card.href =
+  post.category === "recipes"
+    ? `/blog/recipes/${post.url}`
+    : post.category === "guides"
+      ? `/blog/guides/${post.url}`
+      : `/blog/${post.url}`;
+
         card.className = "blog-card";
 
         card.innerHTML = `
@@ -123,6 +141,7 @@ function initBlog() {
     grid.appendChild(fragment);
   }
 }
+
 
 // ============================
 // MORE RECIPES
@@ -148,7 +167,10 @@ function initMoreRecipes() {
         .slice(0, 9)
         .forEach(recipe => {
           const card = document.createElement("a");
-          card.href = `/Blog post/recipes/${recipe.url}`;
+          card.href =
+  article.category === "guides"
+    ? `/blog/guides/${article.url}`
+    : `/blog/${article.url}`;
           card.className = "recipe-card";
 
           card.innerHTML = `
@@ -172,6 +194,54 @@ function initMoreRecipes() {
       container.appendChild(fragment);
     })
     .catch(err => console.error("More recipes error:", err));
+}
+// ============================
+// MORE ARTICLES
+// ============================
+function initMoreArticles() {
+  const container = document.getElementById("more-articles-list");
+  if (!container) return;
+
+  const currentFile = decodeURIComponent(
+    window.location.pathname.split("/").pop()
+  );
+
+  fetch("/data/posts.json")
+    .then(res => {
+      if (!res.ok) throw new Error("posts.json not found");
+      return res.json();
+    })
+    .then(posts => {
+      const fragment = document.createDocumentFragment();
+
+      posts
+        .filter(
+          p =>
+            p.category !== "recipes" && // ⬅️ SOLO ARTICOLI
+            p.url !== currentFile
+        )
+        .slice(0, 6)
+        .forEach(article => {
+          const card = document.createElement("a");
+          card.href = `/blog/${article.url}`; // ⬅️ path articoli
+          card.className = "more-article-card";
+
+          card.innerHTML = `
+            <img
+              src="../../${article.image}"
+              alt="${article.title}"
+              loading="lazy"
+              decoding="async">
+            <h3>${article.title}</h3>
+          `;
+
+          fragment.appendChild(card);
+        });
+
+      container.innerHTML = "";
+      container.appendChild(fragment);
+    })
+    .catch(err => console.error("More articles error:", err));
 }
 
 // ============================
@@ -204,5 +274,6 @@ document.addEventListener("DOMContentLoaded", () => {
   loadYouTubeVideos();
   initBlog();
   initMoreRecipes();
+  initMoreArticles();
   initNavbar();
 });
