@@ -84,6 +84,9 @@ function initBlog() {
   fetch("data/posts.json")
     .then(res => res.json())
     .then(posts => {
+
+      posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
       render(posts, "all");
 
       filterButtons.forEach(btn => {
@@ -160,6 +163,9 @@ function initMoreRecipes() {
       return res.json();
     })
     .then(posts => {
+
+      posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+      
       const fragment = document.createDocumentFragment();
 
       posts
@@ -212,6 +218,9 @@ function initMoreArticles() {
       return res.json();
     })
     .then(posts => {
+
+      posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
       const fragment = document.createDocumentFragment();
 
       posts

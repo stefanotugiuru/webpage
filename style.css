@@ -2618,3 +2618,17 @@ body {
   max-width: 1000px;
   margin: 0 auto;
 }
+@media (max-width: 768px) {
+  body.single-post .blog-hero {
+    padding-top: 100px; /* altezza reale navbar mobile */
+  }
+}
+@media (max-width: 768px) {
+  .blog-hero h1 {
+    font-size: 2.2rem;
+    line-height: 1.25;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    letter-spacing: 1px; /* riduce l’effetto “taglio” */
+  }
+}
