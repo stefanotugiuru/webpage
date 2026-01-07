@@ -89,5 +89,29 @@
     "image": "images/blog/barcelona-view.webp",
     "url": "moving-to-barcelona.html",
     "date": "2026-01-03"
-  }
+  },
+  {
+  "title": "How to Obtain the TIE in Spain for Non EU Citizens",
+  "category": "guides",
+  "date": "2026-01-07",
+  "image": "images/blog/TIE.webp",
+  "url": "tie-card-spain.html"
+},
+{
+  "title": "When to Apply for the TIE in Spain",
+  "category": "guides",
+  "date": "2026-01-08",
+  "image": "images/blog/tie-deadline.webp",
+  "url": "when-to-apply-for-tie.html"
+},
+{
+  "title": "TIE Appointment Booking in Spain (Cita Previa for Fingerprints)",
+  "category": "guides",
+  "date": "2026-01-09",
+  "image": "images/blog/cita-previa-tie.webp",
+  "url": "tie-appointment-booking-cita-previa.html"
+}
+
+
+
 ]

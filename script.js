@@ -42,8 +42,7 @@ async function loadYouTubeVideos() {
             src="https://i.ytimg.com/vi/${videoId}/hqdefault.jpg"
             alt="YouTube video"
             loading="lazy"
-            decoding="async"
-          >
+            decoding="async">
         </div>
       `;
 
@@ -56,7 +55,7 @@ async function loadYouTubeVideos() {
   }
 }
 
-// 👉 CLICK HANDLER (UNA SOLA VOLTA, FUORI)
+// CLICK THUMB → IFRAME
 document.addEventListener('click', e => {
   const thumb = e.target.closest('.video-thumb');
   if (!thumb) return;
@@ -74,8 +73,9 @@ document.addEventListener('click', e => {
 });
 
 // ============================
-// BLOG
+// BLOG (pagina /blog)
 // ============================
+
 function initBlog() {
   const grid = document.getElementById("blog-grid");
   const filterButtons = document.querySelectorAll(".filter-btn");
@@ -86,7 +86,6 @@ function initBlog() {
     .then(posts => {
 
       posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-
       render(posts, "all");
 
       filterButtons.forEach(btn => {
@@ -100,31 +99,25 @@ function initBlog() {
     .catch(err => console.error("Blog error:", err));
 
   function render(posts, category) {
-    const fragment = document.createDocumentFragment();
     grid.innerHTML = "";
 
     posts
-     .filter(p => {
-  const selected = category.toLowerCase();
-  const postCategory = (p.category || "").toLowerCase();
+      .filter(p => {
+        const selected = category.toLowerCase();
+        const postCategory = (p.category || "").toLowerCase();
 
-  if (selected === "all") return true;
-  if (selected === "guides") return postCategory === "guides";
-  if (selected === "travel") return postCategory === "travel";
-  if (selected === "recipes") return postCategory === "recipes";
-
-  return false;
-})
-
+        if (selected === "all") return true;
+        return postCategory === selected;
+      })
       .forEach(post => {
         const card = document.createElement("a");
 
-       card.href =
-  post.category === "recipes"
-    ? `/blog/recipes/${post.url}`
-    : post.category === "guides"
-      ? `/blog/guides/${post.url}`
-      : `/blog/${post.url}`;
+        card.href =
+          post.category === "recipes"
+            ? `/blog/recipes/${post.url}`
+            : post.category === "guides"
+              ? `/blog/guides/${post.url}`
+              : `/blog/${post.url}`;
 
         card.className = "blog-card";
 
@@ -138,17 +131,15 @@ function initBlog() {
           </div>
         `;
 
-        fragment.appendChild(card);
+        grid.appendChild(card);
       });
-
-    grid.appendChild(fragment);
   }
 }
 
+// ============================
+// MORE RECIPES (FEATURED STYLE)
+// ============================
 
-// ============================
-// MORE RECIPES
-// ============================
 function initMoreRecipes() {
   const container = document.getElementById("more-recipes-list");
   if (!container) return;
@@ -158,52 +149,45 @@ function initMoreRecipes() {
   );
 
   fetch("/data/posts.json")
-    .then(res => {
-      if (!res.ok) throw new Error("posts.json not found");
-      return res.json();
-    })
+    .then(res => res.json())
     .then(posts => {
 
-      posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-      
-      const fragment = document.createDocumentFragment();
-
       posts
-        .filter(p => p.category === "recipes" && p.url !== currentFile)
+        .filter(p =>
+          (p.category || "").toLowerCase() === "recipes" &&
+          p.url !== currentFile
+        )
         .slice(0, 9)
         .forEach(recipe => {
           const card = document.createElement("a");
-          card.href =
-  article.category === "guides"
-    ? `/blog/guides/${article.url}`
-    : `/blog/${article.url}`;
-          card.className = "recipe-card";
+
+          card.href = `/blog/recipes/${recipe.url}`;
+          card.className = "content-card";
 
           card.innerHTML = `
-            <div class="recipe-card-image">
+            <div class="content-card-image">
               <img
                 src="../../${recipe.image}"
                 alt="${recipe.title}"
                 loading="lazy"
                 decoding="async">
             </div>
-            <div class="recipe-card-content">
-              <span class="recipe-category">${recipe.category}</span>
+            <div class="content-card-content">
+              <span class="content-card-category">${recipe.category}</span>
               <h3>${recipe.title}</h3>
             </div>
           `;
 
-          fragment.appendChild(card);
+          container.appendChild(card);
         });
-
-      container.innerHTML = "";
-      container.appendChild(fragment);
     })
     .catch(err => console.error("More recipes error:", err));
 }
+
 // ============================
-// MORE ARTICLES
+// MORE ARTICLES (STESSO DESIGN)
 // ============================
+
 function initMoreArticles() {
   const container = document.getElementById("more-articles-list");
   if (!container) return;
@@ -213,42 +197,42 @@ function initMoreArticles() {
   );
 
   fetch("/data/posts.json")
-    .then(res => {
-      if (!res.ok) throw new Error("posts.json not found");
-      return res.json();
-    })
+    .then(res => res.json())
     .then(posts => {
 
-      posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-      const fragment = document.createDocumentFragment();
-
       posts
-        .filter(
-          p =>
-            p.category !== "recipes" && // ⬅️ SOLO ARTICOLI
-            p.url !== currentFile
+        .filter(p =>
+          (p.category || "").toLowerCase() !== "recipes" &&
+          p.url !== currentFile
         )
-        .slice(0, 6)
+        .slice(0, 9)
         .forEach(article => {
+          const category = (article.category || "").toLowerCase();
+
           const card = document.createElement("a");
-          card.href = `/blog/${article.url}`; // ⬅️ path articoli
-          card.className = "more-article-card";
+          card.href =
+            category === "guides"
+              ? `/blog/guides/${article.url}`
+              : `/blog/${article.url}`;
+
+          card.className = "content-card";
 
           card.innerHTML = `
-            <img
-              src="../../${article.image}"
-              alt="${article.title}"
-              loading="lazy"
-              decoding="async">
-            <h3>${article.title}</h3>
+            <div class="content-card-image">
+              <img
+                src="../../${article.image}"
+                alt="${article.title}"
+                loading="lazy"
+                decoding="async">
+            </div>
+            <div class="content-card-content">
+              <span class="content-card-category">${article.category}</span>
+              <h3>${article.title}</h3>
+            </div>
           `;
 
-          fragment.appendChild(card);
+          container.appendChild(card);
         });
-
-      container.innerHTML = "";
-      container.appendChild(fragment);
     })
     .catch(err => console.error("More articles error:", err));
 }
@@ -256,6 +240,7 @@ function initMoreArticles() {
 // ============================
 // NAVBAR
 // ============================
+
 function initNavbar() {
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
@@ -279,6 +264,7 @@ function initNavbar() {
 // ============================
 // INIT
 // ============================
+
 document.addEventListener("DOMContentLoaded", () => {
   loadYouTubeVideos();
   initBlog();
