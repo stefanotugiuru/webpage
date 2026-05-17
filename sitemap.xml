@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Main Pages -->
   <url>
     <loc>https://stefanotugiuru.space/</loc>
     <priority>1.0</priority>
@@ -29,6 +30,116 @@
   <url>
     <loc>https://stefanotugiuru.space/video.html</loc>
     <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Recipes -->
+  <url>
+    <loc>https://stefanotugiuru.space/blog/recipes/pipiepatati.html</loc>
+    <lastmod>2025-12-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://stefanotugiuru.space/blog/recipes/bakedseabreamwithlemon.html</loc>
+    <lastmod>2025-12-23</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://stefanotugiuru.space/blog/recipes/risottoalcioccolato.html</loc>
+    <lastmod>2025-12-24</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://stefanotugiuru.space/blog/recipes/cannellonispinaciragu.html</loc>
+    <lastmod>2025-12-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://stefanotugiuru.space/blog/recipes/butifarra.html</loc>
+    <lastmod>2025-12-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://stefanotugiuru.space/blog/recipes/farfallecremadipiselliesalsiccia.html</loc>
+    <lastmod>2025-12-27</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://stefanotugiuru.space/blog/recipes/cucumber-roll.html</loc>
+    <lastmod>2025-12-28</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://stefanotugiuru.space/blog/recipes/spaghetti-del-poverello.html</loc>
+    <lastmod>2025-12-29</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://stefanotugiuru.space/blog/recipes/farrotto-salsiccia-zola-nduja.html</loc>
+    <lastmod>2025-12-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://stefanotugiuru.space/blog/recipes/paccheri-vodka-sauce-sausage.html</loc>
+    <lastmod>2025-12-31</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://stefanotugiuru.space/blog/recipes/pappardelle-cherry-burrata.html</loc>
+    <lastmod>2026-01-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://stefanotugiuru.space/blog/recipes/pasta-zucchine-cozze.html</loc>
+    <lastmod>2026-01-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Guides -->
+  <url>
+    <loc>https://stefanotugiuru.space/blog/guides/moving-to-barcelona.html</loc>
+    <lastmod>2026-01-03</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://stefanotugiuru.space/blog/guides/what-is-tie-spain.html</loc>
+    <lastmod>2026-01-05</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://stefanotugiuru.space/blog/guides/who-must-apply-for-tie.html</loc>
+    <lastmod>2026-01-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://stefanotugiuru.space/blog/guides/tie-card-spain.html</loc>
+    <lastmod>2026-01-07</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://stefanotugiuru.space/blog/guides/when-to-apply-for-tie.html</loc>
+    <lastmod>2026-01-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://stefanotugiuru.space/blog/guides/tie-appointment-booking-cita-previa.html</loc>
+    <lastmod>2026-01-09</lastmod>
+    <priority>0.7</priority>
   </url>
 
 </urlset>

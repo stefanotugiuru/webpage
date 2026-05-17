@@ -7,15 +7,63 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ---- SKIP TO CONTENT ---- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.skip-link:focus-visible {
+  position: fixed !important;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+  padding: 12px 28px;
+  background: var(--dark-red);
+  color: var(--white);
+  font-family: var(--font-secondary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius-m);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
 a {
   text-decoration: none;
   color: inherit;
 }
 
 a:hover,
-a:focus,
 a:visited {
   text-decoration: none;
+}
+
+/* ---- FOCUS VISIBILITY (accessibilità tastiera) ---- */
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---- SELEZIONE TESTO BRAND ---- */
+::selection {
+  background-color: var(--gold);
+  color: #1a1a1a;
 }
 
 :root {
@@ -82,7 +130,7 @@ body {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(25px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -92,7 +140,7 @@ body {
 
 .fade-in {
   opacity: 0;
-  animation: fadeInUp 0.8s ease forwards;
+  animation: fadeInUp 0.5s ease-out forwards;
 }
 
 /* ========================================= */
@@ -181,6 +229,12 @@ body {
   gap: 6px;
   cursor: pointer;
   margin-left: auto;
+  min-width: 44px;
+  min-height: 44px;
+  justify-content: center;
+  align-items: center;
+  touch-action: manipulation;
+  border-radius: var(--radius-s);
 }
 
 .hamburger span {
@@ -249,7 +303,7 @@ body {
   border: 2px solid var(--gold);
   background: rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(10px);
-  animation: fadeInUp 1s ease;
+  animation: fadeInUp 0.65s ease-out;
 }
 
 .hero h1 {
@@ -309,21 +363,26 @@ body {
 /* ========================================= */
 
 .cta-button {
-  display: inline-block;
-  padding: 16px 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 14px 42px;
   border-radius: 50px;
   text-decoration: none;
   font-family: var(--font-secondary);
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
-  font-size: 0.9rem;
+  font-size: 1rem;
   position: relative;
   overflow: hidden;
   background: var(--gradient);
   color: var(--white);
   border: 2px solid var(--dark-red);
-  transition: 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  touch-action: manipulation;
+  cursor: pointer;
 }
 
 .cta-button::before {
@@ -370,7 +429,7 @@ body {
   text-align: center;
   margin-bottom: 40px;
   position: relative;
-  animation: fadeInUp 0.8s ease;
+  animation: fadeInUp 0.5s ease-out;
 }
 
 .portfolio h2::after {
@@ -393,7 +452,7 @@ body {
   margin-bottom: 35px;
   padding: 22px;
   height: auto;          
-  animation: fadeInUp 0.8s ease;
+  animation: fadeInUp 0.5s ease-out;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -635,7 +694,7 @@ body {
   background-color: #fff;
   border-radius: 20px;
   padding: 40px;
-  animation: fadeInUp 0.8s ease;
+  animation: fadeInUp 0.5s ease-out;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
   transition: 0.3s ease;
 }
@@ -837,6 +896,11 @@ body {
     box-shadow: 0 22px 55px rgba(0,0,0,0.22);
 }
 
+.video-box:focus-within {
+    outline: 3px solid var(--gold);
+    outline-offset: 3px;
+}
+
 /* ============================ */
 /* IFRAME                       */
 /* ============================ */
@@ -882,6 +946,7 @@ body {
     position: absolute;
     inset: 0;
     cursor: pointer;
+    touch-action: manipulation;
 }
 
 .video-thumb img {
@@ -1047,7 +1112,7 @@ section {
 }
 
 section.my-story {
-  padding-top: 60px !important;
+  padding-top: 60px;
 }
 
 section h2 {
@@ -1358,23 +1423,23 @@ section h2 a:hover {
 /* BLOG MAIN PAGE — Centered hero */
 
 .blog-main-page .blog-hero {
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  align-items: center !important;
-  text-align: center !important;
-  min-height: 30vh !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 30vh;
 }
 
 .blog-main-page .blog-hero h1,
 .blog-main-page .blog-hero p {
-  margin: 0 auto !important;
+  margin: 0 auto;
 }
 
 .blog-main-page .blog-hero .blog-meta,
 .blog-main-page .blog-hero .article-author {
-  justify-content: center !important;
-  margin-top: 15px !important;
+  justify-content: center;
+  margin-top: 15px;
 }
 
 /* FILTERS */
@@ -1394,17 +1459,19 @@ section h2 a:hover {
 
 .filter-btn {
   padding: 10px 25px;
+  min-height: 44px;
   border-radius: 50px;
   border: 2px solid var(--dark-red);
   background: transparent;
   color: var(--dark-red);
   font-family: var(--font-secondary);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  touch-action: manipulation;
 }
 
 .filter-btn:hover,
@@ -1451,6 +1518,12 @@ section h2 a:hover {
 .blog-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 8px 30px rgba(123, 30, 34, 0.15);
+}
+
+.blog-card:focus-visible {
+  outline: 3px solid var(--dark-red);
+  outline-offset: 4px;
+  transform: translateY(-4px);
 }
 /* ========================================= */
 /* BLOG CARD INNER                            */
@@ -1771,6 +1844,19 @@ section h2 a:hover {
   margin-bottom: 20px;
 }
 
+/* INLINE LINKS: visibili come link */
+.article-content a {
+  color: var(--dark-red);
+  text-decoration: underline;
+  text-decoration-color: rgba(123, 30, 34, 0.4);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s ease, color 0.2s ease;
+}
+
+.article-content a:hover {
+  text-decoration-color: var(--dark-red);
+}
+
 /* INTERNAL HEADINGS */
 
 .article-content h2 {
@@ -1927,10 +2013,8 @@ section h2 a:hover {
   .hamburger {
     display: flex;
   }
-  /* MOBILE NAV OVERLAY */
- @media (max-width: 768px) {
 
-  /* NASCONDE IL MENU DESKTOP */
+  /* MOBILE NAV OVERLAY */
   .nav-links {
     display: none;
     position: fixed;
@@ -1946,24 +2030,19 @@ section h2 a:hover {
     z-index: 999;
   }
 
-  /* MOSTRA MENU SOLO QUANDO ATTIVO */
   .nav-links.active {
     display: flex;
-  }
-
-  /* MOSTRA HAMBURGER */
-  .hamburger {
-    display: flex;
-    margin-left: auto;
-  }
-}
-
-  .nav-links.active {
     transform: translateX(0);
   }
 
   .nav-links a {
     font-size: 1.4rem;
+    padding: 12px 20px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
   }
 
   .logo img {
@@ -2486,10 +2565,14 @@ body {
   box-shadow: 0 20px 55px rgba(0,0,0,0.14);
 }
 
-.content-card:focus,
 .content-card:visited {
   text-decoration: none;
   color: inherit;
+}
+
+.content-card:focus-visible {
+  outline: 3px solid var(--dark-red);
+  outline-offset: 4px;
 }
 
 /* IMAGE */

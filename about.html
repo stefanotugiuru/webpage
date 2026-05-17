@@ -18,13 +18,48 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Learn more about Stefano Maurici - Marketing Specialist & Content Creator">
+  <meta name="description" content="Stefano Maurici, known as Tu Giuru, is a Marketing Specialist and Content Creator. Discover his story, experience and what drives his work.">
   <title>Stefano Maurici | About</title>
 
   <link rel="canonical" href="https://stefanotugiuru.space/about.html">
- <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="manifest" href="/manifest.json">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://stefanotugiuru.space/about.html">
+  <meta property="og:title" content="About Stefano Maurici | Tu Giuru">
+  <meta property="og:description" content="Stefano Maurici, known as Tu Giuru, is a Marketing Specialist and Content Creator. Discover his story, experience and what drives his work.">
+  <meta property="og:image" content="https://stefanotugiuru.space/images/fotoprofilo.jpg">
+  <meta property="og:site_name" content="Stefano Maurici, Tu Giuru">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About Stefano Maurici | Tu Giuru">
+  <meta name="twitter:description" content="Stefano Maurici, known as Tu Giuru, is a Marketing Specialist and Content Creator. Discover his story, experience and what drives his work.">
+  <meta name="twitter:image" content="https://stefanotugiuru.space/images/fotoprofilo.jpg">
+  <!-- Referrer Policy -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://stefanotugiuru.space/about.html",
+    "name": "About Stefano Maurici | Tu Giuru",
+    "description": "Stefano Maurici, known as Tu Giuru, is a Marketing Specialist and Content Creator. Discover his story, experience and what drives his work.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "url": "https://stefanotugiuru.space/",
+      "name": "Stefano Maurici, Tu Giuru"
+    },
+    "about": {
+      "@type": "Person",
+      "name": "Stefano Maurici",
+      "alternateName": "Tu Giuru"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <!-- Google Fonts optimized -->
 <link
   rel="preload"
@@ -58,23 +93,24 @@
   </a>
 
   <ul class="nav-links">
-    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="about.html" class="active" aria-current="page">About</a></li>
     <li><a href="portfolio.html">Portfolio</a></li>
     <li><a href="video.html">Videos</a></li>
     <li><a href="blog.html">Blog</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
 
-  <div class="hamburger" role="button" aria-label="Toggle navigation" aria-expanded="false">
+  <div class="hamburger" role="button" tabindex="0" aria-label="Toggle navigation" aria-expanded="false">
     <span></span>
     <span></span>
     <span></span>
   </div>
 </nav>
 
+<main>
 <!-- ================= ABOUT PAGE ================= -->
 <section class="about-page fade-in">
-  <h1 class="about-title">To sum up...</h1>
+  <h1 class="about-title">Stefano Maurici – My Story</h1>
 
   <div class="about-container">
 
@@ -365,18 +401,22 @@
   </div>
 </section>
 
+</main>
+
 <!-- ================= SCRIPT ================= -->
 <script>
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
 
-  hamburger.addEventListener('click', () => {
+  function toggleAboutNav() {
     hamburger.classList.toggle('open');
     navLinks.classList.toggle('active');
-    hamburger.setAttribute(
-      'aria-expanded',
-      hamburger.classList.contains('open')
-    );
+    hamburger.setAttribute('aria-expanded', hamburger.classList.contains('open'));
+  }
+  hamburger.addEventListener('click', toggleAboutNav);
+  hamburger.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleAboutNav(); }
+    if (e.key === 'Escape') { hamburger.classList.remove('open'); navLinks.classList.remove('active'); hamburger.setAttribute('aria-expanded','false'); }
   });
 
   window.addEventListener('scroll', () => {

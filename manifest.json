@@ -1,0 +1,22 @@
+{
+  "name": "Stefano Maurici | Tu Giuru",
+  "short_name": "Tu Giuru",
+  "description": "Marketing Specialist and Content Creator. Strategy, content and storytelling that connect brands with people.",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#7b1e22",
+  "background_color": "#faf9f7",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

@@ -36,6 +36,9 @@
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
   <link rel="apple-touch-icon" href="/favicon.png">
+  <link rel="manifest" href="/manifest.json">
+  <!-- Referrer Policy -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -72,10 +75,13 @@
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
     media="print"
     onload="this.media='all'">
   <noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer">
   </noscript>
 
   <!-- Main stylesheet -->
@@ -133,9 +139,7 @@
       height="0" width="0" style="display:none, visibility:hidden,"></iframe>
   </noscript>
 
-  <a href="#main" class="skip-link" style="position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;">
-    Skip to content
-  </a>
+  <a href="#main" class="skip-link">Skip to content</a>
 
   <nav class="navbar" aria-label="Primary navigation">
     <a href="/" class="logo" aria-label="Home">
@@ -382,10 +386,20 @@
     const hamburger = document.querySelector(".hamburger");
     const navLinks = document.querySelector(".nav-links");
 
-    hamburger.addEventListener("click", () => {
+    function toggleHomeNav() {
       const isOpen = hamburger.classList.toggle("open");
       navLinks.classList.toggle("active");
       hamburger.setAttribute("aria-expanded", String(isOpen));
+    }
+    hamburger.addEventListener("click", toggleHomeNav);
+    hamburger.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleHomeNav(); }
+      if (e.key === "Escape") { hamburger.classList.remove("open"); navLinks.classList.remove("active"); hamburger.setAttribute("aria-expanded","false"); }
+    });
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape" && navLinks.classList.contains("active")) {
+        hamburger.classList.remove("open"); navLinks.classList.remove("active"); hamburger.setAttribute("aria-expanded","false");
+      }
     });
 
     window.addEventListener("scroll", () => {

@@ -2,6 +2,8 @@
 // YOUTUBE
 // ============================
 
+// SECURITY: Restrict this key in Google Cloud Console to HTTP referrers
+// matching https://stefanotugiuru.space/* to prevent abuse.
 const YOUTUBE_API_KEY = 'AIzaSyBbfuKGFUNbBKof6M_xrcqIH5ZESN7lumA';
 const CHANNEL_ID = 'UCjEQh8twAgk0G1S8Z9OY_sQ';
 const MAX_VIDEOS = 16;
@@ -37,10 +39,10 @@ async function loadYouTubeVideos() {
       videoBox.className = 'video-box';
 
       videoBox.innerHTML = `
-        <div class="video-thumb" data-id="${videoId}">
+        <div class="video-thumb" data-id="${videoId}" role="button" tabindex="0" aria-label="Play video">
           <img
             src="https://i.ytimg.com/vi/${videoId}/hqdefault.jpg"
-            alt="YouTube video"
+            alt="YouTube video thumbnail"
             loading="lazy"
             decoding="async">
         </div>
@@ -50,26 +52,33 @@ async function loadYouTubeVideos() {
     });
 
   } catch (error) {
-    console.warn('YouTube videos not available:', error.message);
     videoGrid.style.display = 'none';
   }
 }
 
-// CLICK THUMB → IFRAME
-document.addEventListener('click', e => {
-  const thumb = e.target.closest('.video-thumb');
-  if (!thumb) return;
-
+// CLICK / KEYBOARD THUMB → IFRAME
+function activateVideoThumb(thumb) {
   const id = thumb.dataset.id;
-
   thumb.outerHTML = `
     <iframe
       src="https://www.youtube.com/embed/${id}?autoplay=1"
+      title="YouTube video player"
       loading="lazy"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen>
     </iframe>
   `;
+}
+
+document.addEventListener('click', e => {
+  const thumb = e.target.closest('.video-thumb');
+  if (thumb) activateVideoThumb(thumb);
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Enter' && e.key !== ' ') return;
+  const thumb = e.target.closest('.video-thumb');
+  if (thumb) { e.preventDefault(); activateVideoThumb(thumb); }
 });
 
 // ============================
@@ -96,7 +105,7 @@ function initBlog() {
         });
       });
     })
-    .catch(err => console.error("Blog error:", err));
+    .catch(() => {});
 
   function render(posts, category) {
     grid.innerHTML = "";
@@ -181,7 +190,7 @@ function initMoreRecipes() {
           container.appendChild(card);
         });
     })
-    .catch(err => console.error("More recipes error:", err));
+    .catch(() => {});
 }
 
 // ============================
@@ -234,7 +243,7 @@ function initMoreArticles() {
           container.appendChild(card);
         });
     })
-    .catch(err => console.error("More articles error:", err));
+    .catch(() => {});
 }
 
 // ============================
@@ -247,13 +256,29 @@ function initNavbar() {
   const navbar = document.querySelector('.navbar');
   if (!hamburger || !navLinks || !navbar) return;
 
-  hamburger.addEventListener('click', () => {
+  function toggleNav() {
     hamburger.classList.toggle('open');
     navLinks.classList.toggle('active');
-    hamburger.setAttribute(
-      'aria-expanded',
-      hamburger.classList.contains('open')
-    );
+    hamburger.setAttribute('aria-expanded', hamburger.classList.contains('open'));
+  }
+
+  hamburger.addEventListener('click', toggleNav);
+
+  hamburger.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleNav(); }
+    if (e.key === 'Escape') {
+      hamburger.classList.remove('open');
+      navLinks.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+      hamburger.classList.remove('open');
+      navLinks.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
   });
 
   window.addEventListener('scroll', () => {
