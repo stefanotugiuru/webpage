@@ -2661,3 +2661,327 @@ body {
     overflow-wrap: break-word;
   }
 }
+
+/* ============================
+   READING PROGRESS BAR
+   ============================ */
+
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  width: 0%;
+  height: 3px;
+  background: var(--gold);
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+/* ============================
+   BACK TO TOP FLOATING BUTTON
+   ============================ */
+
+.back-to-top-btn {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--dark-red);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s ease;
+  z-index: 999;
+  box-shadow: 0 4px 18px rgba(123, 30, 34, 0.35);
+  touch-action: manipulation;
+}
+
+.back-to-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.back-to-top-btn:hover {
+  background: #5a1418;
+  box-shadow: 0 6px 24px rgba(123, 30, 34, 0.5);
+}
+
+.back-to-top-btn:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.single-post .back-to-top {
+  display: none;
+}
+
+/* ============================
+   SHARE SECTION
+   ============================ */
+
+.share-section {
+  max-width: 720px;
+  margin: 36px auto 0;
+  padding: 24px 0 0;
+  border-top: 1px solid rgba(123, 30, 34, 0.12);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.share-label {
+  font-family: var(--font-secondary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--dark-red);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-right: 4px;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  min-height: 44px;
+  border-radius: 22px;
+  font-family: var(--font-secondary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.share-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+.share-btn:active {
+  transform: scale(0.97);
+}
+
+.share-btn:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.share-btn--twitter {
+  background: #000;
+  color: #fff;
+}
+
+.share-btn--linkedin {
+  background: #0077b5;
+  color: #fff;
+}
+
+.share-btn--copy {
+  background: var(--dark-red);
+  color: #fff;
+}
+
+.share-btn--copy.copied {
+  background: #2e7d32;
+}
+
+/* ============================
+   TABLE OF CONTENTS
+   ============================ */
+
+.toc {
+  background: #fdf8f0;
+  border-left: 4px solid var(--gold);
+  border-radius: 0 12px 12px 0;
+  padding: 20px 26px;
+  margin: 0 0 36px;
+  max-width: 480px;
+}
+
+.toc-title {
+  font-family: var(--font-secondary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--dark-red);
+  margin: 0 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.toc-list a {
+  font-family: var(--font-primary);
+  font-size: 0.88rem;
+  color: #555;
+  text-decoration: none;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  transition: color 0.2s ease;
+}
+
+.toc-list a::before {
+  content: '→';
+  color: var(--gold);
+  font-size: 0.78rem;
+  flex-shrink: 0;
+}
+
+.toc-list a:hover {
+  color: var(--dark-red);
+}
+
+/* ============================
+   BREADCRUMB
+   ============================ */
+
+.breadcrumb {
+  background: rgba(123, 30, 34, 0.03);
+  padding: 10px 5%;
+  border-bottom: 1px solid rgba(123, 30, 34, 0.07);
+}
+
+.breadcrumb-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.breadcrumb-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.breadcrumb-list li:not(:last-child)::after {
+  content: '›';
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+.breadcrumb-list a {
+  font-family: var(--font-primary);
+  font-size: 0.78rem;
+  color: var(--dark-red);
+  text-decoration: none;
+  opacity: 0.65;
+  transition: opacity 0.2s ease;
+}
+
+.breadcrumb-list a:hover {
+  opacity: 1;
+}
+
+.breadcrumb-list li:last-child span {
+  font-family: var(--font-primary);
+  font-size: 0.78rem;
+  color: #777;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 220px;
+  display: inline-block;
+}
+
+/* ============================
+   RECIPE INFO BOX
+   ============================ */
+
+.recipe-info-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fdf8f0;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 14px;
+  padding: 18px 8px;
+  margin: 0 0 36px;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.recipe-info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 24px;
+  border-right: 1px solid rgba(123, 30, 34, 0.1);
+}
+
+.recipe-info-item:last-child {
+  border-right: none;
+}
+
+.recipe-info-item i {
+  font-size: 1.15rem;
+  color: var(--dark-red);
+}
+
+.recipe-info-label {
+  font-family: var(--font-secondary);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.9px;
+  color: #aaa;
+}
+
+.recipe-info-value {
+  font-family: var(--font-secondary);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--dark-red);
+}
+
+@media (max-width: 600px) {
+  .recipe-info-box {
+    padding: 12px 4px;
+  }
+  .recipe-info-item {
+    padding: 8px 14px;
+  }
+  .recipe-info-item i {
+    font-size: 1rem;
+  }
+  .recipe-info-value {
+    font-size: 0.82rem;
+  }
+  .back-to-top-btn {
+    bottom: 20px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+  }
+}

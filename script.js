@@ -247,6 +247,187 @@ function initMoreArticles() {
 }
 
 // ============================
+// READING PROGRESS BAR
+// ============================
+
+function initProgressBar() {
+  if (!document.querySelector('.article-container')) return;
+
+  const bar = document.createElement('div');
+  bar.className = 'reading-progress';
+  bar.setAttribute('role', 'progressbar');
+  bar.setAttribute('aria-label', 'Reading progress');
+  bar.setAttribute('aria-valuemin', '0');
+  bar.setAttribute('aria-valuemax', '100');
+  document.body.prepend(bar);
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? Math.round(scrollTop / docHeight * 100) : 0;
+    bar.style.width = pct + '%';
+    bar.setAttribute('aria-valuenow', pct);
+  }, { passive: true });
+}
+
+// ============================
+// BACK TO TOP FLOATING BUTTON
+// ============================
+
+function initBackToTop() {
+  if (!document.querySelector('.article-container')) return;
+
+  const btn = document.createElement('button');
+  btn.className = 'back-to-top-btn';
+  btn.setAttribute('aria-label', 'Back to top');
+  btn.innerHTML = '<i class="fas fa-chevron-up"></i>';
+  document.body.appendChild(btn);
+
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+// ============================
+// SHARE BUTTONS
+// ============================
+
+function initShareButtons() {
+  const article = document.querySelector('.article-container');
+  if (!article) return;
+
+  const url = encodeURIComponent(window.location.href);
+  const title = encodeURIComponent(document.title);
+
+  const section = document.createElement('div');
+  section.className = 'share-section';
+  section.innerHTML = `
+    <span class="share-label">Share</span>
+    <a class="share-btn share-btn--twitter"
+       href="https://twitter.com/intent/tweet?url=${url}&text=${title}"
+       target="_blank" rel="noopener noreferrer" aria-label="Share on X">
+      <i class="fab fa-x-twitter"></i> X
+    </a>
+    <a class="share-btn share-btn--linkedin"
+       href="https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${title}"
+       target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn">
+      <i class="fab fa-linkedin"></i> LinkedIn
+    </a>
+    <button class="share-btn share-btn--copy" aria-label="Copy link">
+      <i class="fas fa-link"></i> Copy link
+    </button>
+  `;
+
+  article.after(section);
+
+  section.querySelector('.share-btn--copy').addEventListener('click', function () {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      this.innerHTML = '<i class="fas fa-check"></i> Copied!';
+      this.classList.add('copied');
+      setTimeout(() => {
+        this.innerHTML = '<i class="fas fa-link"></i> Copy link';
+        this.classList.remove('copied');
+      }, 2000);
+    }).catch(() => {});
+  });
+}
+
+// ============================
+// AUTO TABLE OF CONTENTS
+// ============================
+
+function initTOC() {
+  const content = document.querySelector('.article-content');
+  if (!content) return;
+
+  const headings = Array.from(content.querySelectorAll('h2')).filter(
+    h => !h.closest('.toc') && h.textContent.trim() !== 'References'
+  );
+  if (headings.length < 3) return;
+
+  headings.forEach(h => {
+    if (!h.id) {
+      h.id = h.textContent.toLowerCase()
+        .replace(/[^a-z0-9\s]/g, '')
+        .trim()
+        .replace(/\s+/g, '-')
+        .substring(0, 50);
+    }
+  });
+
+  const items = headings.map(h =>
+    `<li><a href="#${h.id}">${h.textContent.trim()}</a></li>`
+  ).join('');
+
+  const toc = document.createElement('nav');
+  toc.className = 'toc';
+  toc.setAttribute('aria-label', 'Table of contents');
+  toc.innerHTML = `
+    <p class="toc-title"><i class="fas fa-list-ul"></i> In this article</p>
+    <ul class="toc-list">${items}</ul>
+  `;
+
+  headings[0].before(toc);
+}
+
+// ============================
+// BREADCRUMB
+// ============================
+
+function initBreadcrumb() {
+  const hero = document.querySelector('.blog-hero');
+  if (!hero) return;
+
+  const path = window.location.pathname;
+  let categoryLabel, categoryHref;
+
+  if (path.includes('/blog/recipes/')) {
+    categoryLabel = 'Recipes';
+    categoryHref = '/blog.html';
+  } else if (path.includes('/blog/guides/')) {
+    categoryLabel = 'Guides';
+    categoryHref = '/blog.html';
+  } else {
+    return;
+  }
+
+  const h1 = hero.querySelector('h1');
+  const pageTitle = h1 ? h1.textContent.trim() : '';
+
+  const nav = document.createElement('nav');
+  nav.className = 'breadcrumb';
+  nav.setAttribute('aria-label', 'Breadcrumb');
+  nav.innerHTML = `
+    <ol class="breadcrumb-list">
+      <li><a href="/">Home</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="${categoryHref}">${categoryLabel}</a></li>
+      <li><span>${pageTitle}</span></li>
+    </ol>
+  `;
+  hero.before(nav);
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://stefanotugiuru.space/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://stefanotugiuru.space/blog.html" },
+      { "@type": "ListItem", "position": 3, "name": categoryLabel, "item": "https://stefanotugiuru.space" + categoryHref },
+      { "@type": "ListItem", "position": 4, "name": pageTitle }
+    ]
+  };
+  const schemaEl = document.createElement('script');
+  schemaEl.type = 'application/ld+json';
+  schemaEl.textContent = JSON.stringify(schema);
+  document.head.appendChild(schemaEl);
+}
+
+// ============================
 // NAVBAR
 // ============================
 
@@ -296,4 +477,9 @@ document.addEventListener("DOMContentLoaded", () => {
   initMoreRecipes();
   initMoreArticles();
   initNavbar();
+  initProgressBar();
+  initBackToTop();
+  initShareButtons();
+  initTOC();
+  initBreadcrumb();
 });
