@@ -64,6 +64,7 @@ function activateVideoThumb(thumb) {
       src="https://www.youtube.com/embed/${id}?autoplay=1"
       title="YouTube video player"
       loading="lazy"
+      sandbox="allow-same-origin allow-scripts allow-presentation allow-popups"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen>
     </iframe>

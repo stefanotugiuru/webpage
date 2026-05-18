@@ -1094,6 +1094,10 @@ body {
   background-color: #9b3a3e;
 }
 
+.skills-group.ai span::before {
+  background-color: var(--gold);
+}
+
 /* DISABLE HOVER */
 
 .skills-grid span:hover {
@@ -1219,24 +1223,43 @@ section h2 a:hover {
 /* RIGHT SIDE IMAGE */
 
 .about-right {
-  flex: 0.7;
+  flex: 0.8;
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  position: sticky;
+  top: 120px;
 }
 
 .image-frame {
-  width: 90%;
-  max-width: 400px;
+  position: relative;
+  width: 100%;
+  max-width: 420px;
   border-radius: 0;
   box-shadow: none;
 }
 
+.image-frame::before {
+  content: '';
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.08;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
 .image-frame img {
-  width: 90%;
+  width: 100%;
   height: auto;
   display: block;
   object-fit: cover;
+  position: relative;
+  z-index: 1;
 }
 /* ============================ */
 /* ABOUT – MOBILE TYPOGRAPHY    */
@@ -1249,8 +1272,8 @@ section h2 a:hover {
     text-align: left;
   }
 }
-/* Nasconde immagine "To sum up" su mobile */
-@media (max-width: 768px) {
+/* Nasconde immagine su mobile piccolo */
+@media (max-width: 600px) {
   .about-page .about-right {
     display: none;
   }
