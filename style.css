@@ -2800,6 +2800,13 @@ body {
   background: #2e7d32;
 }
 
+.share-btn--whatsapp  { background: #25d366; color: #fff; }
+.share-btn--facebook  { background: #1877f2; color: #fff; }
+.share-btn--pinterest { background: #e60023; color: #fff; }
+.share-btn--telegram  { background: #0088cc; color: #fff; }
+.share-btn--reddit    { background: #ff4500; color: #fff; }
+.share-btn--email     { background: #555555; color: #fff; }
+
 /* ============================
    TABLE OF CONTENTS
    ============================ */

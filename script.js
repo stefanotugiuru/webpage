@@ -315,10 +315,40 @@ function initShareButtons() {
        target="_blank" rel="noopener noreferrer" aria-label="Share on X">
       <i class="fab fa-x-twitter"></i> X
     </a>
+    <a class="share-btn share-btn--whatsapp"
+       href="https://wa.me/?text=${title}%20${url}"
+       target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp">
+      <i class="fab fa-whatsapp"></i> WhatsApp
+    </a>
+    <a class="share-btn share-btn--facebook"
+       href="https://www.facebook.com/sharer/sharer.php?u=${url}"
+       target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook">
+      <i class="fab fa-facebook"></i> Facebook
+    </a>
     <a class="share-btn share-btn--linkedin"
        href="https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${title}"
        target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn">
       <i class="fab fa-linkedin"></i> LinkedIn
+    </a>
+    <a class="share-btn share-btn--pinterest"
+       href="https://pinterest.com/pin/create/button/?url=${url}&description=${title}"
+       target="_blank" rel="noopener noreferrer" aria-label="Share on Pinterest">
+      <i class="fab fa-pinterest"></i> Pinterest
+    </a>
+    <a class="share-btn share-btn--telegram"
+       href="https://t.me/share/url?url=${url}&text=${title}"
+       target="_blank" rel="noopener noreferrer" aria-label="Share on Telegram">
+      <i class="fab fa-telegram"></i> Telegram
+    </a>
+    <a class="share-btn share-btn--reddit"
+       href="https://www.reddit.com/submit?url=${url}&title=${title}"
+       target="_blank" rel="noopener noreferrer" aria-label="Share on Reddit">
+      <i class="fab fa-reddit"></i> Reddit
+    </a>
+    <a class="share-btn share-btn--email"
+       href="mailto:?subject=${title}&body=${url}"
+       aria-label="Share via Email">
+      <i class="fas fa-envelope"></i> Email
     </a>
     <button class="share-btn share-btn--copy" aria-label="Copy link">
       <i class="fas fa-link"></i> Copy link
