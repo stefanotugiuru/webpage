@@ -2996,3 +2996,52 @@ body {
   color: #1e293b;
   line-height: 1.6;
 }
+
+/* FAQ Accordion */
+.faq-list {
+  border-top: 1px solid #e5e7eb;
+  margin-top: 8px;
+}
+
+.faq-item {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.faq-item summary.faq-question {
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 18px 48px 18px 0;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  color: #1f2937;
+  line-height: 1.5;
+}
+
+.faq-item summary.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary.faq-question::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  color: var(--dark-red);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.faq-item[open] > summary.faq-question::after {
+  content: '\2212';
+}
+
+.faq-answer {
+  padding: 0 0 18px 0;
+  color: #4b5563;
+  line-height: 1.75;
+  margin: 0;
+}
