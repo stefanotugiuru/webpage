@@ -2985,3 +2985,14 @@ body {
     height: 44px;
   }
 }
+
+.tldr-block {
+  background: #f0f7ff;
+  border-left: 4px solid #4f46e5;
+  border-radius: 0 8px 8px 0;
+  padding: 16px 20px;
+  margin: 24px 0;
+  font-size: 1rem;
+  color: #1e293b;
+  line-height: 1.6;
+}

@@ -121,12 +121,15 @@ function initBlog() {
       .forEach(post => {
         const card = document.createElement("a");
 
-        card.href =
-          post.category === "recipes"
-            ? `/blog/recipes/${post.url}`
-            : post.category === "guides"
-              ? `/blog/guides/${post.url}`
-              : `/blog/${post.url}`;
+        const categoryPaths = {
+          recipes: "recipes",
+          guides: "guides",
+          travel: "travel",
+          reviews: "reviews"
+        };
+        card.href = categoryPaths[post.category]
+          ? `/blog/${categoryPaths[post.category]}/${post.url}`
+          : `/blog/${post.url}`;
 
         card.className = "blog-card";
 
