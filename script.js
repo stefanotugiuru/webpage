@@ -125,7 +125,10 @@ function initBlog() {
           recipes: "recipes",
           guides: "guides",
           travel: "travel",
-          reviews: "reviews"
+          reviews: "reviews",
+          ai: "ai",
+          marketing: "marketing",
+          "agentic-workflow": "agentic-workflow"
         };
         card.href = categoryPaths[post.category]
           ? `/blog/${categoryPaths[post.category]}/${post.url}`
