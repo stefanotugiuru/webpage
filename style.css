@@ -2498,6 +2498,32 @@ body {
 }
 
 /* ======================================================
+   INLINE IMAGES – IMMAGINI DENTRO IL TESTO DELL'ARTICOLO
+====================================================== */
+
+.article-inline-image {
+  margin: 40px 0 32px;
+  width: 100%;
+}
+
+.article-inline-image img {
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+.article-inline-image figcaption {
+  margin-top: 10px;
+  font-size: 0.82rem;
+  color: #888;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* ======================================================
    TITOLI INTERNI
 ====================================================== */
 
