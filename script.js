@@ -226,10 +226,16 @@ function initMoreArticles() {
           const category = (article.category || "").toLowerCase();
 
           const card = document.createElement("a");
-          card.href =
-            category === "guides"
-              ? `/blog/guides/${article.url}`
-              : `/blog/${article.url}`;
+          const categoryPaths = {
+            guides: "guides",
+            travel: "travel",
+            ai: "ai",
+            marketing: "marketing",
+            "agentic-workflow": "agentic-workflow"
+          };
+          card.href = categoryPaths[category]
+            ? `/blog/${categoryPaths[category]}/${article.url}`
+            : `/blog/${article.url}`;
 
           card.className = "content-card";
 
