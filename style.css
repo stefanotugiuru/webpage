@@ -83,8 +83,9 @@ a:visited {
   --gradient: linear-gradient(135deg, #7b1e22 0%, #5a1418 100%);
 
   /* Tipografia globale */
-  --font-primary: 'Inter', sans-serif;
-  --font-secondary: 'Poppins', sans-serif;
+  --font-primary: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-secondary: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
 
   /* Spaziature e radius */
   --radius-s: 8px;
@@ -370,7 +371,7 @@ body {
   padding: 14px 42px;
   border-radius: 50px;
   text-decoration: none;
-  font-family: var(--font-secondary);
+  font-family: var(--font-sans);
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -1504,7 +1505,7 @@ section h2 a:hover {
   border: 2px solid var(--dark-red);
   background: transparent;
   color: var(--dark-red);
-  font-family: var(--font-secondary);
+  font-family: var(--font-sans);
   font-size: 0.95rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -3137,7 +3138,7 @@ body {
 }
 
 /* --- NAVBAR ISLAND --- */
-.home .navbar.nav-island {
+.nav-island {
   position: fixed;
   top: 24px;
   left: 50%;
@@ -3156,7 +3157,7 @@ body {
               background 700ms cubic-bezier(0.32, 0.72, 0, 1);
 }
 
-.home .navbar.nav-island.scrolled {
+.nav-island.scrolled {
   box-shadow: 0 8px 48px rgba(0, 0, 0, 0.1), 0 1px 0 rgba(255,255,255,0.8) inset;
   background: rgba(253, 251, 247, 0.98);
 }
