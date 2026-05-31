@@ -2487,13 +2487,16 @@ body {
    INTRO IMAGE – PANORAMICA, NON CROPPATA
 ====================================================== */
 
+.article-image--intro figure {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
 .article-image--intro img {
   width: 100%;
-  max-width: 720px;     /* stessa colonna del testo */
-  height: auto;         /* mantiene proporzioni reali */
-  object-fit: contain;  /* MOSTRA TUTTA L’IMMAGINE */
-  aspect-ratio: auto;   /* disattiva ratio forzato */
-  margin: 0 auto;
+  height: auto;
+  object-fit: contain;
+  aspect-ratio: auto;
   display: block;
 }
 
