@@ -126,10 +126,10 @@ function initBlog() {
           recipes: "recipes",
           guides: "guides",
           travel: "travel",
-          reviews: "reviews",
+          food: "food",
+          culture: "culture",
           ai: "ai",
-          marketing: "marketing",
-          "agentic-workflow": "agentic-workflow"
+          marketing: "marketing"
         };
         card.href = categoryPaths[post.category]
           ? `/blog/${categoryPaths[post.category]}/${post.url}`
@@ -227,11 +227,13 @@ function initMoreArticles() {
 
           const card = document.createElement("a");
           const categoryPaths = {
+            recipes: "recipes",
             guides: "guides",
             travel: "travel",
+            food: "food",
+            culture: "culture",
             ai: "ai",
-            marketing: "marketing",
-            "agentic-workflow": "agentic-workflow"
+            marketing: "marketing"
           };
           card.href = categoryPaths[category]
             ? `/blog/${categoryPaths[category]}/${article.url}`
