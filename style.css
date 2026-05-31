@@ -1488,7 +1488,7 @@ section h2 a:hover {
 
 .blog-controls {
   position: sticky;
-  top: 88px;
+  top: 128px;
   z-index: 100;
   background: #fff;
   border-bottom: 1px solid rgba(212, 175, 55, 0.2);
@@ -1539,6 +1539,13 @@ section h2 a:hover {
   justify-content: center;
   gap: 10px;
   flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .blog-controls {
+    top: 80px; /* navbar più bassa su mobile */
+    padding: 14px 4% 12px;
+  }
 }
 
 .filter-btn {
