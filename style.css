@@ -3446,6 +3446,7 @@ body {
   margin-bottom: 24px;
   background: #F5F0EB;
   border: 1px solid rgba(123, 30, 34, 0.07);
+  overflow: visible;
   transition: opacity 700ms cubic-bezier(0.32, 0.72, 0, 1),
               transform 700ms cubic-bezier(0.32, 0.72, 0, 1),
               box-shadow 400ms cubic-bezier(0.32, 0.72, 0, 1);
@@ -3479,23 +3480,22 @@ body {
 
 .home .project-left .dbl-inner {
   border-radius: calc(1.5rem - 8px);
-  aspect-ratio: 4 / 3;
 }
 
 /* --- FINAL QUOTE REDESIGN --- */
 .home .final-quote {
   background: #1a0a0b;
-  padding: 120px 40px;
+  padding: 72px 40px;
 }
 
 .home .final-quote blockquote {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  font-size: clamp(1.3rem, 2.5vw, 2.2rem);
   font-style: italic;
   color: #FDFBF7;
   line-height: 1.35;
   max-width: 820px;
-  margin: 0 auto 48px;
+  margin: 0 auto 32px;
   text-align: center;
   opacity: 0.92;
 }
@@ -3512,13 +3512,98 @@ body {
 }
 
 .home .footer-socials a {
-  color: rgba(253, 251, 247, 0.6);
-  transition: color 300ms ease, transform 300ms cubic-bezier(0.32, 0.72, 0, 1);
+  color: rgba(253, 251, 247, 0.55);
+  font-size: 1.15rem;
+  transition: color 300ms ease, transform 350ms cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 .home .footer-socials a:hover {
+  color: #e07070;
+  transform: translateY(-3px) scale(1.15);
+}
+
+/* --- ABOUT PHOTO FLIP --- */
+
+.home .about-flip-container {
+  perspective: 1200px;
+  cursor: pointer;
+  position: relative;
+}
+
+.home .about-flip-card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 750ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.home .about-flip-card.flipped {
+  transform: rotateY(180deg);
+}
+
+.home .about-flip-front,
+.home .about-flip-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: calc(2.5rem - 8px);
+  overflow: hidden;
+}
+
+.home .about-flip-front {
+  position: relative;
+}
+
+.home .about-flip-back {
+  transform: rotateY(180deg);
+  position: absolute;
+  inset: 0;
+}
+
+.home .about-flip-front img,
+.home .about-flip-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Hover overlay su faccia anteriore */
+.home .about-flip-front::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(123, 30, 34, 0);
+  transition: background 400ms ease;
+  pointer-events: none;
+}
+
+.home .about-flip-container:hover .about-flip-front::after {
+  background: rgba(123, 30, 34, 0.1);
+}
+
+/* Hint "Click to flip" */
+.home .about-flip-container::before {
+  content: 'Click to flip ↺';
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background: rgba(26, 10, 11, 0.72);
   color: #FDFBF7;
-  transform: translateY(-2px);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  padding: 5px 14px;
+  border-radius: 999px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms ease, transform 300ms ease;
+  white-space: nowrap;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  z-index: 10;
+}
+
+.home .about-flip-container:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 /* --- EXPERTISE SKILL CARD CLICK-TO-REVEAL --- */

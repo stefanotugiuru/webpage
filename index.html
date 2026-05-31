@@ -203,13 +203,22 @@
     <section class="about fade-in" aria-label="About Stefano Tu Giuru">
       <div class="about-content">
         <div class="about-image-wrapper">
-          <div class="dbl-bezel">
-            <div class="dbl-inner">
-              <img
-                src="https://pub-0fec706e3c4943a8afac4392d53f0b8a.r2.dev/posa%20master%20chef.png"
-                alt="Stefano Tu Giuru portrait"
-                loading="lazy"
-                decoding="async">
+          <div class="dbl-bezel about-flip-container">
+            <div class="about-flip-card">
+              <div class="about-flip-front dbl-inner">
+                <img
+                  src="https://pub-0fec706e3c4943a8afac4392d53f0b8a.r2.dev/posa%20master%20chef.png"
+                  alt="Stefano Tu Giuru portrait"
+                  loading="eager"
+                  decoding="async">
+              </div>
+              <div class="about-flip-back">
+                <img
+                  src="images/foto vino.webp"
+                  alt="Stefano Maurici"
+                  loading="lazy"
+                  decoding="async">
+              </div>
             </div>
           </div>
         </div>
@@ -507,6 +516,14 @@
     }, { threshold: 0.08 });
 
     document.querySelectorAll(".project-box").forEach(el => projectObserver.observe(el));
+
+    // About photo flip
+    const flipContainer = document.querySelector('.about-flip-container');
+    if (flipContainer) {
+      flipContainer.addEventListener('click', () => {
+        flipContainer.querySelector('.about-flip-card').classList.toggle('flipped');
+      });
+    }
 
     // Skill card click-to-reveal
     document.querySelectorAll('.skill-card').forEach(card => {
