@@ -1374,8 +1374,8 @@ section h2 a:hover {
 /* ========================================= */
 
 .final-quote {
-  background-color: #f9f9f9;
-  color: #222;
+  background: #1a0a0b;
+  color: #FDFBF7;
   text-align: center;
   padding: 60px 20px;
   font-family: var(--font-secondary);
@@ -1388,6 +1388,7 @@ section h2 a:hover {
   margin: 0 auto 25px;
   font-size: 1.4rem;
   font-weight: 400;
+  color: rgba(253, 251, 247, 0.88);
   line-height: 1.5;
   font-style: italic;
   color: #444;
@@ -2323,6 +2324,8 @@ body {
 
   /* FOOTHER FINAL QUOTE + SOCIAL ICONS */
 .final-quote {
+  background: #1a0a0b;
+  color: #FDFBF7;
   text-align: center;
   padding: 50px 20px 50px;
 }
@@ -2332,7 +2335,7 @@ body {
   font-style: italic;
   max-width: 800px;
   margin: 0 auto 50px;
-  color: #333;
+  color: rgba(253, 251, 247, 0.88);
 }
 
 .footer-socials {
@@ -2346,18 +2349,18 @@ body {
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  background: #f2f2f2;
+  background: #FDFBF7;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--dark-red); /* usa il tuo rosso */
+  color: #7b1e22;
   font-size: 1.2rem;
   transition: all 0.25s ease;
 }
 
 .footer-socials a:hover {
   background: #7b1e22;
-  color: #fff;
+  color: #FDFBF7;
   transform: translateY(-3px);
 }
 @media (max-width: 768px) {
@@ -3513,17 +3516,11 @@ body {
 }
 
 .home .footer-socials a {
-  background: rgba(255, 255, 255, 0.07);
-  color: rgba(253, 251, 247, 0.65);
   font-size: 1.15rem;
-  border: 1px solid rgba(255, 255, 255, 0.12);
   transition: color 300ms ease, background 300ms ease, transform 350ms cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 .home .footer-socials a:hover {
-  background: rgba(224, 112, 112, 0.2);
-  color: #e07070;
-  border-color: rgba(224, 112, 112, 0.4);
   transform: translateY(-3px) scale(1.15);
 }
 
