@@ -63,13 +63,13 @@
   <link
     rel="preload"
     as="style"
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
     onload="this.onload=null,this.rel='stylesheet'">
 
   <noscript>
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap">
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap">
   </noscript>
 
   <!-- Font Awesome, non blocking -->
@@ -142,7 +142,7 @@
 
   <a href="#main" class="skip-link">Skip to content</a>
 
-  <nav class="navbar" aria-label="Primary navigation">
+  <nav class="navbar nav-island" aria-label="Primary navigation">
     <a href="/" class="logo" aria-label="Home">
       <img
         src="images/LOGO.png"
@@ -193,24 +193,29 @@
         decoding="async">
 
       <div class="hero-content">
-        <h1>Stefano Tu Giuru</h1>
-        <h2>Marketing Specialist and Content Creator</h2>
-        <p>Telling the stories behind what truly matters.</p>
-        <a href="portfolio.html" class="cta-button">Explore My Work</a>
+        <h1 data-anim="hero-h1">Stefano Tu Giuru</h1>
+        <h2 data-anim="hero-h2">Marketing Specialist and Content Creator</h2>
+        <p data-anim="hero-p">Telling the stories behind what truly matters.</p>
+        <a href="portfolio.html" class="cta-button" data-anim="hero-cta">Explore My Work <span class="btn-icon">↗</span></a>
       </div>
     </header>
 
     <section class="about fade-in" aria-label="About Stefano Tu Giuru">
       <div class="about-content">
         <div class="about-image-wrapper">
-          <img
-            src="https://pub-0fec706e3c4943a8afac4392d53f0b8a.r2.dev/posa%20master%20chef.png"
-            alt="Stefano Tu Giuru portrait"
-            loading="lazy"
-            decoding="async">
+          <div class="dbl-bezel">
+            <div class="dbl-inner">
+              <img
+                src="https://pub-0fec706e3c4943a8afac4392d53f0b8a.r2.dev/posa%20master%20chef.png"
+                alt="Stefano Tu Giuru portrait"
+                loading="lazy"
+                decoding="async">
+            </div>
+          </div>
         </div>
 
         <div class="about-text">
+          <span class="eyebrow">About</span>
           <h2>About Me</h2>
           <p>
             Hi, I’m Stefano, I am a communicator, a storyteller, a marketer, and a creator. I’ve always believed that stories shape the way we see the world.
@@ -226,66 +231,74 @@
       <div class="section-content">
         <h2>Expertise</h2>
 
-        <div class="skills-groups">
+        <div class="skills-groups bento-grid">
           <div class="skills-group strategy">
-            <h3>Management</h3>
-            <div class="skills-grid">
-              <span>Marketing Strategy</span>
-              <span>Marketing Analytics</span>
-              <span>Lead Generation & Funnel Optimization</span>
-              <span>Team Leadership</span>
-              <span>Sales Strategy</span>
-              <span>Budget Management</span>
-              <span>Project Management</span>
-              <span>Leadership</span>
-              <span>Negotiation Techniques</span>
-              <span>Data Analysis</span>
-              <span>Data Driven Decision Making</span>
-              <span>KPI Tracking</span>
-            </div>
+            <div class="dbl-bezel"><div class="dbl-inner">
+              <h3>Management</h3>
+              <div class="skills-grid">
+                <span>Marketing Strategy</span>
+                <span>Marketing Analytics</span>
+                <span>Lead Generation & Funnel Optimization</span>
+                <span>Team Leadership</span>
+                <span>Sales Strategy</span>
+                <span>Budget Management</span>
+                <span>Project Management</span>
+                <span>Leadership</span>
+                <span>Negotiation Techniques</span>
+                <span>Data Analysis</span>
+                <span>Data Driven Decision Making</span>
+                <span>KPI Tracking</span>
+              </div>
+            </div></div>
           </div>
 
           <div class="skills-group marketing">
-            <h3>Marketing</h3>
-            <div class="skills-grid">
-              <span>Social Media Strategy</span>
-              <span>SEO</span>
-              <span>Brand Communication</span>
-              <span>Team Work</span>
-              <span>Customer Journey Mapping</span>
-              <span>CRM Management</span>
-              <span>Content Strategy</span>
-              <span>CRO</span>
-              <span>Email Marketing</span>
-              <span>Paid Advertising Basic Meta & Google Ads</span>
-              <span>Audience Research / Insights</span>
-            </div>
+            <div class="dbl-bezel"><div class="dbl-inner">
+              <h3>Marketing</h3>
+              <div class="skills-grid">
+                <span>Social Media Strategy</span>
+                <span>SEO</span>
+                <span>Brand Communication</span>
+                <span>Team Work</span>
+                <span>Customer Journey Mapping</span>
+                <span>CRM Management</span>
+                <span>Content Strategy</span>
+                <span>CRO</span>
+                <span>Email Marketing</span>
+                <span>Paid Advertising Basic Meta & Google Ads</span>
+                <span>Audience Research / Insights</span>
+              </div>
+            </div></div>
           </div>
 
           <div class="skills-group creative">
-            <h3>Communication</h3>
-            <div class="skills-grid">
-              <span>Content Creation</span>
-              <span>Copywriting & Storytelling</span>
-              <span>Editing</span>
-              <span>UX Writing</span>
-              <span>Tone of Voice Development</span>
-              <span>Personal Branding</span>
-              <span>Cross Cultural Communication</span>
-            </div>
+            <div class="dbl-bezel"><div class="dbl-inner">
+              <h3>Communication</h3>
+              <div class="skills-grid">
+                <span>Content Creation</span>
+                <span>Copywriting & Storytelling</span>
+                <span>Editing</span>
+                <span>UX Writing</span>
+                <span>Tone of Voice Development</span>
+                <span>Personal Branding</span>
+                <span>Cross Cultural Communication</span>
+              </div>
+            </div></div>
           </div>
 
           <div class="skills-group ai">
-            <h3>AI & Automation</h3>
-            <div class="skills-grid">
-              <span>AI Workflow Automation</span>
-              <span>Agentic AI Systems</span>
-              <span>Prompt Engineering</span>
-              <span>AI-Powered Content Creation</span>
-              <span>AI-Assisted Market Research</span>
-              <span>Marketing Automation</span>
-              <span>AI Tools (Claude, ChatGPT, Gemini, Perplexity)</span>
-            </div>
+            <div class="dbl-bezel"><div class="dbl-inner">
+              <h3>AI & Automation</h3>
+              <div class="skills-grid">
+                <span>AI Workflow Automation</span>
+                <span>Agentic AI Systems</span>
+                <span>Prompt Engineering</span>
+                <span>AI-Powered Content Creation</span>
+                <span>AI-Assisted Market Research</span>
+                <span>Marketing Automation</span>
+                <span>AI Tools (Claude, ChatGPT, Gemini, Perplexity)</span>
+              </div>
+            </div></div>
           </div>
         </div>
 
@@ -297,57 +310,55 @@
         <h2>My Projects</h2>
 
         <article class="project-box">
+          <span class="eyebrow project-num">01</span>
           <h3 class="project-title">RTO Specialist – Full Marketing & Web Strategy</h3>
           <div class="project-content">
             <div class="project-left">
-              <img
-                src="images/rto_specialist_homepage.webp"
-                alt="RTO Specialist Website Redesign"
-                loading="lazy"
-                decoding="async">
+              <div class="dbl-bezel"><div class="dbl-inner">
+                <img src="images/rto_specialist_homepage.webp" alt="RTO Specialist Website Redesign" loading="lazy" decoding="async">
+              </div></div>
             </div>
             <div class="project-right">
               <p>Complete brand and digital overhaul for an Australian Training Resources provider: business plan, website redesign from scratch, social media strategy, and business development outreach across the RTO sector.</p>
-              <a href="https://www.rtospecialist.com.au" class="cta-button" target="_blank" rel="noopener noreferrer">Visit The Website</a>
+              <a href="https://www.rtospecialist.com.au" class="cta-button" target="_blank" rel="noopener noreferrer">Visit The Website <span class="btn-icon">↗</span></a>
             </div>
           </div>
         </article>
 
         <article class="project-box">
+          <span class="eyebrow project-num">02</span>
           <h3 class="project-title">Trash Phenomena Research</h3>
           <div class="project-content">
             <div class="project-left">
-              <img
-                src="https://pub-0fec706e3c4943a8afac4392d53f0b8a.r2.dev/trashmarketing.jpg"
-                alt="Trash Phenomena Research project cover"
-                loading="lazy"
-                decoding="async">
+              <div class="dbl-bezel"><div class="dbl-inner">
+                <img src="https://pub-0fec706e3c4943a8afac4392d53f0b8a.r2.dev/trashmarketing.jpg" alt="Trash Phenomena Research project cover" loading="lazy" decoding="async">
+              </div></div>
             </div>
             <div class="project-right">
               <p>An in depth analysis of how provocative content drives engagement and reshapes brand visibility in the digital era.</p>
-              <a href="pdfs/tesi.pdf" class="cta-button" target="_blank" rel="noopener noreferrer">View Case Study</a>
+              <a href="pdfs/tesi.pdf" class="cta-button" target="_blank" rel="noopener noreferrer">View Case Study <span class="btn-icon">↗</span></a>
             </div>
           </div>
         </article>
 
         <article class="project-box">
+          <span class="eyebrow project-num">03</span>
           <h3 class="project-title">Blooper AI Marketing Plan</h3>
           <div class="project-content">
             <div class="project-left">
-              <img
-                src="https://pub-0fec706e3c4943a8afac4392d53f0b8a.r2.dev/blooperlogo.jpg"
-                alt="Blooper AI project cover"
-                loading="lazy"
-                decoding="async">
+              <div class="dbl-bezel"><div class="dbl-inner">
+                <img src="https://pub-0fec706e3c4943a8afac4392d53f0b8a.r2.dev/blooperlogo.jpg" alt="Blooper AI project cover" loading="lazy" decoding="async">
+              </div></div>
             </div>
             <div class="project-right">
               <p>Strategic launch plan for an AI driven pre production platform in Europe, combining data, storytelling, and creativity to drive awareness and trust.</p>
-              <a href="pdfs/Blooper.pdf" class="cta-button" target="_blank" rel="noopener noreferrer">View Case Study</a>
+              <a href="pdfs/Blooper.pdf" class="cta-button" target="_blank" rel="noopener noreferrer">View Case Study <span class="btn-icon">↗</span></a>
             </div>
           </div>
         </article>
 
         <article class="project-box">
+          <span class="eyebrow project-num">04</span>
           <h3 class="project-title">Creative Video Portfolio</h3>
           <div class="project-content">
             <div class="project-left video-wrapper">
@@ -362,24 +373,23 @@
             </div>
             <div class="project-right">
               <p>Recent videos from my socials, designed to engage and entertain, from concept to edit.</p>
-              <a href="video.html" class="cta-button">Watch Videos</a>
+              <a href="video.html" class="cta-button">Watch Videos <span class="btn-icon">↗</span></a>
             </div>
           </div>
         </article>
 
         <article class="project-box">
+          <span class="eyebrow project-num">05</span>
           <h3 class="project-title">Personal Website</h3>
           <div class="project-content">
             <div class="project-left">
-              <img
-                src="images/home-webpage.webp"
-                alt="Personal website project cover"
-                loading="lazy"
-                decoding="async">
+              <div class="dbl-bezel"><div class="dbl-inner">
+                <img src="images/home-webpage.webp" alt="Personal website project cover" loading="lazy" decoding="async">
+              </div></div>
             </div>
             <div class="project-right">
               <p>Designed and built from scratch to showcase my work, with responsive design, smooth animations, and continuous updates.</p>
-              <a href="index.html" class="cta-button">View Project</a>
+              <a href="index.html" class="cta-button">View Project <span class="btn-icon">↗</span></a>
             </div>
           </div>
         </article>
@@ -412,6 +422,7 @@
   </main>
 
   <script>
+    // Hamburger morph X
     const hamburger = document.querySelector(".hamburger");
     const navLinks = document.querySelector(".nav-links");
 
@@ -431,17 +442,43 @@
       }
     });
 
+    // Navbar compact on scroll
     window.addEventListener("scroll", () => {
       document.querySelector(".navbar").classList.toggle("scrolled", window.scrollY > 50);
     }, { passive: true });
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    // Staggered IntersectionObserver for hero + section elements
+    const animObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          animObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll("[data-anim]").forEach(el => animObserver.observe(el));
+
+    // Legacy fade-in sections
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add("show");
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
+    document.querySelectorAll(".fade-in").forEach(el => fadeObserver.observe(el));
+
+    // Project boxes staggered reveal
+    const projectObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add("in-view"), i * 80);
+          projectObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll(".project-box").forEach(el => projectObserver.observe(el));
   </script>
 
 </body>
