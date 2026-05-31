@@ -3513,13 +3513,17 @@ body {
 }
 
 .home .footer-socials a {
-  color: rgba(253, 251, 247, 0.55);
+  background: rgba(255, 255, 255, 0.07);
+  color: rgba(253, 251, 247, 0.65);
   font-size: 1.15rem;
-  transition: color 300ms ease, transform 350ms cubic-bezier(0.32, 0.72, 0, 1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: color 300ms ease, background 300ms ease, transform 350ms cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 .home .footer-socials a:hover {
+  background: rgba(224, 112, 112, 0.2);
   color: #e07070;
+  border-color: rgba(224, 112, 112, 0.4);
   transform: translateY(-3px) scale(1.15);
 }
 
