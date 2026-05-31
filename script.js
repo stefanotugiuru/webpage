@@ -123,15 +123,19 @@ function initBlog() {
   function render(posts) {
     grid.innerHTML = "";
 
-    posts
-      .filter(p => {
-        const cat = (p.category || "").toLowerCase();
-        const title = (p.title || "").toLowerCase();
-        const matchesCategory = activeCategory === "all" || cat === activeCategory;
-        const matchesSearch = !searchTerm || title.includes(searchTerm) || cat.includes(searchTerm);
-        return matchesCategory && matchesSearch;
-      })
-      .forEach(post => {
+    const filtered = posts.filter(p => {
+      const cat = (p.category || "").toLowerCase();
+      const title = (p.title || "").toLowerCase();
+      const matchesCategory = activeCategory === "all" || cat === activeCategory;
+      const matchesSearch = !searchTerm || title.includes(searchTerm) || cat.includes(searchTerm);
+      return matchesCategory && matchesSearch;
+    });
+
+    // Update article counter
+    const counter = document.getElementById("blog-article-count");
+    if (counter) counter.textContent = `${filtered.length} article${filtered.length !== 1 ? "s" : ""}`;
+
+    filtered.forEach((post, idx) => {
         const card = document.createElement("a");
 
         const categoryPaths = {
@@ -147,7 +151,8 @@ function initBlog() {
           ? `/blog/${categoryPaths[post.category]}/${post.url}`
           : `/blog/${post.url}`;
 
-        card.className = "blog-card";
+        card.className = "blog-card" + (idx === 0 ? " blog-card--featured" : "");
+        card.style.setProperty("--card-index", idx);
 
         card.innerHTML = `
           <div class="blog-card-image">
