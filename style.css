@@ -103,6 +103,15 @@ body {
   color: var(--dark-red);
   overflow-x: hidden;
 }
+
+/* GLOBAL TYPOGRAPHY IMPROVEMENTS */
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
 /* ============================ */
 /* MOBILE / DESKTOP UTILITIES   */
 /* ============================ */
@@ -525,7 +534,7 @@ body {
   color: #333;
   line-height: 1.6;
   margin-bottom: 20px;
-  text-align: justify;
+  text-align: left;
 }
 
 .project-right .cta-button {
@@ -614,14 +623,15 @@ body {
   position: absolute;
   bottom: -12px;
   left: 0;
-  width: 70px;
-  height: 3px;
-  background: var(--gold);
+  width: 48px;
+  height: 2px;
+  background: var(--dark-red);
+  border-radius: 2px;
 }
 
 .about-text p {
   font-size: 1.1rem;
-  text-align: justify;
+  text-align: left;
   line-height: 1.8;
   color: #444;
   max-width: 600px;
@@ -1366,7 +1376,7 @@ section h2 a:hover {
   font-size: 0.95rem;
   line-height: 1.8;
   color: #333;
-  text-align: justify;
+  text-align: left;
   margin: 0;
 }
 /* ========================================= */
@@ -1418,7 +1428,7 @@ section h2 a:hover {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.65);
   font-size: 0.85rem;
   font-weight: 500;
   text-decoration: none;
@@ -1428,7 +1438,13 @@ section h2 a:hover {
 }
 .blog-back-link:hover {
   color: #fff;
-  gap: 12px;
+  transform: translateX(-3px);
+}
+
+.blog-back-link:focus-visible {
+  outline: 2px solid rgba(255,255,255,0.6);
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 
 .blog-hero {
@@ -3215,8 +3231,8 @@ body {
 }
 
 .tldr-block {
-  background: #f0f7ff;
-  border-left: 4px solid #4f46e5;
+  background: rgba(123, 30, 34, 0.05);
+  border-left: 4px solid #7b1e22;
   border-radius: 0 8px 8px 0;
   padding: 16px 20px;
   margin: 24px 0;
@@ -3241,6 +3257,7 @@ body {
   font-size: 1rem;
   padding: 18px 48px 18px 0;
   cursor: pointer;
+  cursor: pointer;
   list-style: none;
   position: relative;
   color: #1f2937;
@@ -3251,11 +3268,24 @@ body {
   display: none;
 }
 
+.faq-item summary.faq-question:focus-visible {
+  outline: 2px solid #7b1e22;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
 .faq-item summary.faq-question::after {
-  content: '+';
+  content: '';
   position: absolute;
-  right: 0;
+  right: 4px;
   top: 50%;
+  width: 18px;
+  height: 18px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237b1e22' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: translateY(-50%) rotate(0deg);
+  transition: transform 350ms cubic-bezier(0.32, 0.72, 0, 1);
   transform: translateY(-50%);
   font-size: 1.4rem;
   color: var(--dark-red);
@@ -3264,7 +3294,7 @@ body {
 }
 
 .faq-item[open] > summary.faq-question::after {
-  content: '\2212';
+  transform: translateY(-50%) rotate(180deg);
 }
 
 .faq-answer {
