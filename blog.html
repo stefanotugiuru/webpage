@@ -155,7 +155,19 @@
 <!-- ================= BLOG GRID ================= -->
 <div class="blog-grid" id="blog-grid"></div>
 
+<!-- BACK TO TOP -->
+<button class="back-to-top-btn" id="back-to-top" aria-label="Back to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
 <script src="script.js" defer></script>
+<script>
+  const btn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
 
 <!-- ================= FINAL QUOTE ================= -->
 <section class="final-quote fade-in">
