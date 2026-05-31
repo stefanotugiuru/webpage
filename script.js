@@ -89,35 +89,47 @@ document.addEventListener('keydown', e => {
 function initBlog() {
   const grid = document.getElementById("blog-grid");
   const filterButtons = document.querySelectorAll(".filter-btn");
+  const searchInput = document.getElementById("blog-search");
   if (!grid) return;
+
+  let activeCategory = "all";
+  let searchTerm = "";
 
   fetch("data/posts.json")
     .then(res => res.json())
     .then(posts => {
 
       posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-      render(posts, "all");
+      render(posts);
 
       filterButtons.forEach(btn => {
         btn.addEventListener("click", () => {
           filterButtons.forEach(b => b.classList.remove("active"));
           btn.classList.add("active");
-          render(posts, btn.dataset.category);
+          activeCategory = btn.dataset.category;
+          render(posts);
         });
       });
+
+      if (searchInput) {
+        searchInput.addEventListener("input", () => {
+          searchTerm = searchInput.value.trim().toLowerCase();
+          render(posts);
+        });
+      }
     })
     .catch(() => {});
 
-  function render(posts, category) {
+  function render(posts) {
     grid.innerHTML = "";
 
     posts
       .filter(p => {
-        const selected = category.toLowerCase();
-        const postCategory = (p.category || "").toLowerCase();
-
-        if (selected === "all") return true;
-        return postCategory === selected;
+        const cat = (p.category || "").toLowerCase();
+        const title = (p.title || "").toLowerCase();
+        const matchesCategory = activeCategory === "all" || cat === activeCategory;
+        const matchesSearch = !searchTerm || title.includes(searchTerm) || cat.includes(searchTerm);
+        return matchesCategory && matchesSearch;
       })
       .forEach(post => {
         const card = document.createElement("a");
